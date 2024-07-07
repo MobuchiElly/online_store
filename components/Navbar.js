@@ -10,7 +10,7 @@ const Navbar = () => {
   const [toggleNav, setToggleNav] = useState(false);
 
   return (
-    <div className="h-auto min-h-[10vh] lg:min-h-[16vh] bg-mainBg flex items-center justify-between lg:justify-normal px-2 md:px-4 lg:px-10 font-semibold relative text-lg z-50 text-white">
+    <div className="h-auto min-h-[11vh] lg:min-h-[16vh] bg-mainBg flex items-center justify-between lg:justify-normal px-2 md:px-4 lg:px-10 font-semibold relative text-lg z-50 text-white">
       <div className="w-1/4">
         <Image src="/images/logo.png" height="100" width="100" className="ml-2 w-24 h-10"/>
       </div>
