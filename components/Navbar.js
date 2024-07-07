@@ -10,43 +10,44 @@ const Navbar = () => {
   const [toggleNav, setToggleNav] = useState(false);
 
   return (
-    <div className="border h-auto min-h-[16vh] bg-mainBg flex items-center justify-between lg:justify-normal px-6 font-bold relative text-lg z-50">
+    <div className="h-auto min-h-[16vh] bg-mainBg flex items-center justify-between lg:justify-normal px-2 font-semibold relative text-lg z-50 text-white">
       <div className="w-1/4">
-        <Image src="/images/logo.png" height="100" width="100" className="ml-2" />
+        <Image src="/images/logo.png" height="100" width="100" className="ml-2 w-24 h-10"/>
       </div>
-      <div className="border lg:w-2/4 hidden lg:flex justify-around">
+      <div className="lg:w-2/4 hidden lg:flex justify-around p-1">
         <Link href="#">Home</Link>
-        <Link href="#">Shop</Link>
+        <Link href="#" className="text-white border-b-2 border-slate-700">Shop</Link>
         <Link href="#">Blog</Link>
         <Link href="#">Favourite</Link>
         <Link href="#">Contact</Link>
       </div>
-      <div className="lg:w-1/4 border flex lg:justify-end px-4 items-center">
+      <div className="lg:w-1/4 flex lg:justify-end items-center h-12">
         <div className="relative">
-          <div className="absolute bg-white rounded-full h-6 w-6 left-10 flex justify-center items-center font-bold text-xl border-none shadow" style={{top:'-15px'}}>
-            <span>1</span>
+          <div className="absolute bg-white rounded-full h-6 w-6 left-5 md:left-[-14px] flex justify-center items-center font-bold text-xl border-none shadow" style={{top:'-15px'}}>
+            <span className="text-mainBg font-medium text-base">1</span>
           </div>
-          <Image src="/images/cart.png" alt="cart" width="44" height="40" className="inline-flex w-10 "/>
-          <p className="hidden lg:inline-flex ml-2 mr-4">Cart</p>
+          <Image src="/images/cart.png" alt="cart" width="44" height="40" className="inline-flex w-8 h-auto"/>
         </div>
-        <div className="hidden lg:block h-6 w-1 font-extralight border-l border-black mx-4"></div>
-        <div className="ml-4" onClick={() => setAcctDropDwnOpen(!acctDropDwnOpen)}>
-          <Image src="/images/person.png" width="20" height="20" className="w-7 lg:w-6"/>
+        
+        <div className="hidden lg:block h-9 w-1 ml-5 mr-1 font-extralight border-l border-black"></div>
+
+        <div className="ml-10 md:ml-2 " onClick={() => setAcctDropDwnOpen(!acctDropDwnOpen)}>
+          <Image src="/images/person.png" width="20" height="20" className="w-5 lg:w-6 inline-flex mb-1"/>
         </div>
-        <div className="h-6 w-1 font-extralight border-l border-black mx-4"></div>
-        <button onClick={() => setToggleNav(!toggleNav)}>
+        <div className="h-8 font-bold border-l border-black ml-4 mr-2 block lg:hidden"></div>
+        <button onClick={() => setToggleNav(!toggleNav)} className="inline-flex lg:hidden w-8">
           {
-            toggleNav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30}/>
+            toggleNav ? <AiOutlineClose size={28} /> : <AiOutlineMenu size={34} className="inline-flex"/>
           }
         </button>
       </div>
           {/*mobile nav drop down */}
-      <ul className={`w-full border-t-2 flex flex-col justify-center items-center bg-mainBg rounded-bl-3xl rounded-tr-3xl border-l-4 border-r-4 px-4 ${toggleNav ? 'fixed md:hidden left-0 z-50 top-24  border-r  ease-in-out duration-500' : 'ease-in-out bottom-0 fixed left-[-100%]'}`} style={{ zIndex: 100 }}>
+      <ul className={`w-full border-t-2 flex lg:hidden flex-col justify-center items-center bg-mainBg rounded-bl-3xl rounded-tr-3xl border-l-4 border-r-4 px-4 ${toggleNav ? 'fixed md:hidden left-0 z-50 top-24  border-r  ease-in-out duration-500' : 'ease-in-out bottom-0 fixed left-[-100%]'}`} style={{ zIndex: 100 }}>
           <li className="border-b w-full py-5 flex items-center justify-center">
             <Link href="#" className="">Home</Link>
           </li>
           <li className="border-b w-full py-5 flex items-center justify-center">
-            <Link href="#" className="">Shop</Link>
+            <Link href="#" className="text-white border-b-2">Shop</Link>
           </li>
           <li className="border-b w-full py-5 flex items-center justify-center">
             <Link href="#" className="">Blog</Link>
