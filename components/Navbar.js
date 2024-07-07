@@ -34,7 +34,7 @@ const Navbar = () => {
         <div className="ml-4 md:ml-2 " onClick={() => setAcctDropDwnOpen(!acctDropDwnOpen)}>
           <Image src="/images/person.png" width="20" height="20" className="w-5 lg:w-6 inline-flex mb-1"/>
         </div>
-        <div className="h-8 font-bold border-l border-black ml-4 mr-2 block lg:hidden"></div>
+        <div className="h-8 font-bold border-l border-black ml-3 mr-2 block lg:hidden"></div>
         <button onClick={() => setToggleNav(!toggleNav)} className="inline-flex lg:hidden w-8">
           {
             toggleNav ? <AiOutlineClose size={28} /> : <AiOutlineMenu size={34} className="inline-flex"/>
