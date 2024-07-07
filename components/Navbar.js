@@ -10,7 +10,7 @@ const Navbar = () => {
   const [toggleNav, setToggleNav] = useState(false);
 
   return (
-    <div className="h-auto min-h-[11vh] lg:min-h-[16vh] bg-mainBg flex items-center justify-between lg:justify-normal px-2 md:px-4 lg:px-10 font-semibold relative text-lg z-50 text-white">
+    <div className="h-auto min-h-[10vh] lg:min-h-[16vh] bg-mainBg flex items-center justify-between lg:justify-normal px-2 md:px-4 lg:px-10 font-semibold relative text-lg z-50 text-white">
       <div className="w-1/4">
         <Image src="/images/logo.png" height="100" width="100" className="ml-2 w-24 h-10"/>
       </div>
@@ -23,7 +23,7 @@ const Navbar = () => {
       </div>
       <div className="lg:w-1/4 flex lg:justify-end items-center h-12">
         <div className="relative">
-          <div className="absolute bg-white rounded-full h-6 w-6 left-5 md:left-[-14px] flex justify-center items-center font-bold text-xl border-none shadow" style={{top:'-15px'}}>
+          <div className="absolute bg-white rounded-full h-6 w-6 left-[-14px] flex justify-center items-center font-bold text-xl border-none shadow" style={{top:'-15px'}}>
             <span className="text-mainBg font-medium text-base">1</span>
           </div>
           <Image src="/images/cart.png" alt="cart" width="44" height="40" className="inline-flex w-8 h-auto"/>
@@ -31,7 +31,7 @@ const Navbar = () => {
         
         <div className="hidden lg:block h-9 w-1 ml-5 mr-1 font-extralight border-l border-black"></div>
 
-        <div className="ml-10 md:ml-2 " onClick={() => setAcctDropDwnOpen(!acctDropDwnOpen)}>
+        <div className="ml-4 md:ml-2 " onClick={() => setAcctDropDwnOpen(!acctDropDwnOpen)}>
           <Image src="/images/person.png" width="20" height="20" className="w-5 lg:w-6 inline-flex mb-1"/>
         </div>
         <div className="h-8 font-bold border-l border-black ml-4 mr-2 block lg:hidden"></div>
