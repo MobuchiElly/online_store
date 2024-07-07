@@ -9,7 +9,10 @@ module.exports = {
     extend: {
       colors:{
         mainBg: "#FF7F50",
-      }
+      },
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [],

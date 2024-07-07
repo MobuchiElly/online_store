@@ -1,4 +1,3 @@
-import React from 'react'
 
 const index = () => {
   return (
@@ -9,3 +8,12 @@ const index = () => {
 }
 
 export default index
+
+export const getServerSideProps = () => {
+  return {
+    redirect: {
+      destination:'/shop',
+      permananent: false,
+    }
+  }
+}
