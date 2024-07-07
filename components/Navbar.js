@@ -40,27 +40,23 @@ const Navbar = () => {
           }
         </button>
       </div>
-
-      <ul className={toggleNav ? 'fixed md:hidden left-0 z-50 top-0 w-[70%] h-screen border-r border-r-gray-900 pt-7 bg-gradient-to-bl from-mainBg to-[#FF7F59] ease-in-out duration-300' : 'ease-in-out w-[62%] duration-50 fixed top-0 bottom-0 left-[-100%]'} style={{ zIndex: 100 }}>
-          <div className='block md:hidden ml-4'>
-            <AiOutlineClose size={16} onClick={toggleNav} />
-          </div>
-          {/* Mobile logo */}
-          <h1 className='w-full text-3xl font-bold text-[#0eef] m-4'>M<span className='text-slate-200'>E</span>LAN<span className='text-slate-200'>I</span>N A.</h1>
-          {/* Mobile Items */}
-          {true ? 
-            <Link key={''} href={""} className={`block p-4 border-b rounded-lg md:hover:bg-blue-800 duration-100 cursor-pointer border-gray-600 ${"" ? 'text-yellow-500' : ''}`} onClick={""}>
-            {""}
-          </Link>
-          :
-          <Link key={""} href={""} className={`block p-4 border-b rounded-lg md:hover:bg-blue-800 duration-100 cursor-pointer border-gray-600 ${"" ? 'text-yellow-500' : ''}`} onClick={""}>
-                {item.text}
-              </Link> 
-          }
-          <button className='delay-105 w-full flex justify-start items-center rounded font-[500] p-4 hover:bg-blue-800 border-b hover:text-yellow-500 border-gray-600 duration-300'>
-            <span className='mr-1'>Subscribe</span>
-            <IoMdNotificationsOutline size={24} color="yellow" className='hover:hover:text-yellow-500'/>
-          </button>
+          {/*mobile nav drop down */}
+      <ul className={`w-full border-t-2 flex flex-col justify-center items-center bg-mainBg rounded-bl-3xl rounded-tr-3xl border-l-4 border-r-4 px-4 ${toggleNav ? 'fixed md:hidden left-0 z-50 top-24  border-r  ease-in-out duration-500' : 'ease-in-out bottom-0 fixed left-[-100%]'}`} style={{ zIndex: 100 }}>
+          <li className="border-b w-full py-5 flex items-center justify-center">
+            <Link href="#" className="">Home</Link>
+          </li>
+          <li className="border-b w-full py-5 flex items-center justify-center">
+            <Link href="#" className="">Shop</Link>
+          </li>
+          <li className="border-b w-full py-5 flex items-center justify-center">
+            <Link href="#" className="">Blog</Link>
+          </li>
+          <li className="border-b w-full py-5 flex items-center justify-center">
+            <Link href="#" className="">Favourite</Link>
+          </li>
+          <li className="w-full py-5 flex items-center justify-center">
+            <Link href="#" className="">Contact</Link>
+          </li>
         </ul>
 
       <div
