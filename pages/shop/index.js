@@ -39,7 +39,7 @@ const Shop = () => {
           <button className="bg-mainBg text-white py-2 px-4 rounded-sm text-xl font-bold font-mono mr-1">1</button>
           <button className="bg-mainBg text-white py-2 px-4 rounded-sm text-xl font-bold font-mono mr-1">2</button>
           <button className="bg-mainBg text-white py-2 px-4 rounded-sm text-xl font-bold font-mono">
-          <FaArrowRight size={22} className=""/>
+          <FaArrowRight size={16} className=""/>
           </button>
         </div>
       </div>

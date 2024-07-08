@@ -5,7 +5,7 @@ import { FaYoutubeSquare,  FaStaylinked, FaFacebook, FaFacebookSquare, FaInstagr
 
 const Footer = () => {
   return (
-    <div className="h-auto min-h-20 bg-mainBg w-full bottom-0 font-semibold px-3 py-3 lg:p-9 text-lg text-white">
+    <div className="h-auto min-h-20 bg-mainBg font-sans font-semibold w-full bottom-0 px-3 py-3 lg:p-9 text-xl text-white">
       <div className="py-2 my-2 px-5 md:px-0"><Image src="/images/logo.png" width="140" height="120"/></div>
       <div className="w-full md:flex md:gap-2 px-5 md:px-0">
         <div className="md:w-2/5 md:py-2">

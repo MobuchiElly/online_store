@@ -10,24 +10,24 @@ const Navbar = () => {
   const [toggleNav, setToggleNav] = useState(false);
 
   return (
-    <div className="h-auto min-h-[10vh] lg:min-h-[16vh] bg-mainBg flex items-center justify-between lg:justify-normal px-2 md:px-4 lg:px-10 font-semibold relative text-lg z-50 text-white">
+    <div className="h-auto min-h-[10vh] lg:min-h-[16vh] bg-mainBg flex items-center justify-between lg:justify-normal px-2 md:px-4 lg:px-10 font-sans font-semibold relative text-xl z-50 text-white">
       <div className="w-1/4">
         <Image src="/images/logo.png" height="100" width="100" className="ml-2 w-24 h-10"/>
       </div>
       <div className="lg:w-2/4 hidden lg:flex justify-around p-1">
         <Link href="#">Home</Link>
-        <Link href="#" className="border-b border-black">Shop</Link>
+        <Link href="/shop" className="border-b border-black">Shop</Link>
         <Link href="#">Blog</Link>
         <Link href="#">Favourite</Link>
         <Link href="#">Contact</Link>
       </div>
       <div className="lg:w-1/4 flex lg:justify-end items-center h-12">
-        <div className="relative">
+        <Link href="/shop/cart" className="relative">
           <div className="absolute bg-white rounded-full h-6 w-6 left-[-14px] flex justify-center items-center font-bold text-xl border-none shadow" style={{top:'-15px'}}>
-            <span className="text-mainBg font-medium text-base">1</span>
+            <span className="text-mainBg font-medium text-base">3</span>
           </div>
           <Image src="/images/cart.png" alt="cart" width="44" height="40" className="inline-flex w-8 h-auto"/>
-        </div>
+        </Link>
         
         <div className="hidden lg:block h-9 w-1 ml-5 mr-1 font-extralight border-l border-black"></div>
 
@@ -47,7 +47,7 @@ const Navbar = () => {
             <Link href="#" className="">Home</Link>
           </li>
           <li className="border-b w-full py-5 flex items-center justify-center">
-            <Link href="#" className="text-white border-b-2">Shop</Link>
+            <Link href="/shop" className="text-white border-b-2">Shop</Link>
           </li>
           <li className="border-b w-full py-5 flex items-center justify-center">
             <Link href="#" className="">Blog</Link>
