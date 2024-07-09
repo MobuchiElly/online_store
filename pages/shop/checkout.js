@@ -220,7 +220,7 @@ const Checkout = () => {
                   Complete checkout
                 </button>
               </div>
-              <p className="text-red-600 font-semibold font-serif min-h-7 pl-1">{error && error}</p>
+              <p className="text-sm text-red-600 font-semibold font-serif min-h-7 pl-1">{error && error}</p>
             </div>
             <div className="px-4 lg:px-0">
               <span className="text-wrap text-center">
