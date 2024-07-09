@@ -3,17 +3,17 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import styles from "../styles/Navbar.module.css";
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import { IoMdNotificationsOutline } from "react-icons/io";
 
 const Navbar = () => {
   const [acctDropDwnOpen, setAcctDropDwnOpen] = useState(false);
   const [toggleNav, setToggleNav] = useState(false);
 
-
+  const handleToggleNav = () => {
+    setToggleNav(!toggleNav);
+  }
   useEffect(() => {
     toggleNav === true ? setAcctDropDwnOpen(false) : null;
   }, [toggleNav]);
-
   useEffect(() => {
     acctDropDwnOpen === true ? setToggleNav(false) : null;
   }, [acctDropDwnOpen])
@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-40">
-      <div className="h-auto top-0 min-h-[10vh] lg:min-h-[16vh] bg-layoutMainBg flex items-center justify-between lg:justify-normal px-2 md:px-4 lg:px-10 font-semibold relative text-xl z-50 text-white">
+      <div className="h-auto top-0 min-h-[14vh] lg:min-h-[16vh] bg-layoutMainBg flex items-center justify-between lg:justify-normal px-2 md:px-4 lg:px-10 font-semibold relative text-xl z-50 text-white">
         <div className="w-1/4">
           <Image src="/images/logo.png" height="100" width="100" className="ml-2 w-24 h-10"/>
         </div>
@@ -50,13 +50,13 @@ const Navbar = () => {
             {/*mobile nav drop down */}
         <ul className={`w-full border-t-2 flex lg:hidden flex-col justify-center items-center bg-layoutMainBg font-sans rounded-bl-3xl rounded-tr-3xl border-l-4 border-r-4 px-4 ${toggleNav ? 'fixed md:hidden top-69px left-0 z-50  border-r  ease-in-out duration-500' : 'ease-in-out bottom-0 fixed left-[-100%]'}`} style={{ zIndex: 100 }}>
             <li className="border-b w-full py-5 flex items-center justify-center">
-              <Link href="/shop" className="">Shop</Link>
+              <Link href="/shop" className="" onClick={handleToggleNav}>Shop</Link>
             </li>
             <li className="border-b w-full py-5 flex items-center justify-center">
-              <Link href="/shop/cart" className="">Cart</Link>
+              <Link href="/shop/cart" className="" onClick={handleToggleNav}>Cart</Link>
             </li>
           </ul>
-        {/* Account drop down. Would return implement responsiveness */}
+      
         <div
           className={`${styles["dropdown-container"]} ${
             acctDropDwnOpen ? styles["dropdown-visible"] : styles["dropdown-hidden"]
