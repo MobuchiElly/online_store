@@ -38,7 +38,7 @@ const CheckoutProductCard = ({product}) => {
             <span className="text-lg font-bold">Price: {product.price}</span>
           </div>
           <div className="flex justify-between items-center font-semibold">
-            <button className="py-2 px-3 rounded-2xl border border-gray-700 text-layoutMainBg font-medium mr-8 text-sm hover:scale-105">Delete</button>
+            <button className="py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-layoutMainBg lg:text-black lg:bg-white font-medium mr-8 text-sm hover:scale-105">Delete</button>
             <div className="flex">
               <button className="border border-black px-3 py-1 mx-1 hover:scale-105">-</button>
               <span className="mx-3 text-lg font-bold pt-1">1</span>
