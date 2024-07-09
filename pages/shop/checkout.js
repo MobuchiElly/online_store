@@ -222,8 +222,8 @@ const Checkout = () => {
               </div>
               <p className="text-sm text-red-600 font-semibold font-serif min-h-7 pl-1">{error && error}</p>
             </div>
-            <div className="px-4 lg:px-0">
-              <span className="text-wrap text-center">
+            <div className="px-4 lg:px-2 text-sm lg:text-base">
+              <span className="">
                 By completing this transaction you agree to out <span className="text-lg font-semibold">TERMS</span> and <span className="text-lg font-semibold">CONDITIONS</span>
               </span>
             </div>
