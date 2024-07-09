@@ -1,22 +1,22 @@
 .dropdown-container {
     position: absolute;
     right: 0;
-    background-color: #FF7F50;
     transition: transform 0.5s ease-in-out;
     top: 16vh;
     bottom: -22.5vh;
     z-index: 10;
+    padding-bottom: 2px;
   }
   
   @media (max-width:767px){
     .dropdown-container{
-      top: 10.1vh;
+      top: 14.3vh;
     }
   }
 
   @media (min-width: 768px) and (max-width: 1023px){
     .dropdown-container{
-      top: 10.2vh;
+      top: 14.2vh;
     }
   }
 
@@ -35,13 +35,13 @@
     border-top: 2px solid white;
     position: relative;
     z-index: 20;
-    background-color: #FF7F50;
+    background-color: #DF6F46;
   }
   
   .dropdown-content-2 {
     position: relative;
     z-index: 10;
-    background-color:#FF7F50;
+    background-color: #DF6F46;
     transition: transform 0.5s ease-in-out;
   }
   
