@@ -8,15 +8,10 @@ import products from '@/utils/products';
 import Image from 'next/image';
 
 const Cart = () => {
-    
-    
 
-    const cartItems = useSelector(state => state.cart.items);
+  const cartItems = useSelector(state => state.cart.items);
 
-  // const handleCheckout = () => {
-    
-  // }
-  
+  // For now the page is static with dummy data but i woould improve upon the functionaly enabling user to add data to cart. Save this in local storage and handle global state using redux toolkit 
 
   return (
     <div className="px-5 lg:px-12 py-4" style={{minHeight:"calc(100vh - 20vh)"}}>
