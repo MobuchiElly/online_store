@@ -8,10 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        mainBg: "#FF7F50",
+        mainBg: "#FF7F58",
+        layoutMainBg: "#DF6F46",
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
+      },
+      spacing: {
+        "69px": "69px",
       },
     },
   },

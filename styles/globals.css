@@ -15,5 +15,8 @@ html, body{
   @apply font-roboto
 }
 
+.bg-test{
+  background-color: #e95c29;
+}
 
 

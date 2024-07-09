@@ -1,13 +1,25 @@
 .dropdown-container {
     position: absolute;
     right: 0;
-    width: 22vw;
     background-color: #FF7F50;
     transition: transform 0.5s ease-in-out;
     top: 16vh;
+    bottom: -22.5vh;
     z-index: 10;
   }
   
+  @media (max-width:767px){
+    .dropdown-container{
+      top: 10.1vh;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    .dropdown-container{
+      top: 10.2vh;
+    }
+  }
+
   .dropdown-hidden {
     transform: translateY(-100%);
     visibility: hidden;

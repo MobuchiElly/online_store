@@ -1,13 +1,13 @@
-import ProductCard from "@/components/FComponents/ProductList";
+import ProductList from "@/components/FComponents/ProductList";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import products from "@/utils/products";
 
 const Shop = () => {
-  const backgroundImage = "url('/images/bannerDesktop.png')"; // Corrected path assuming 'banner.png' is in the 'public/images' folder
+  const backgroundImage = "url('/images/bannerDesktop.png')";
     const bgImageStyle = {
         backgroundImage: backgroundImage,
         backgroundSize: 'cover',
-        // backgroundPosition: 'center'
       } 
   return (
     <div className="" style={{ minHeight: "calc(100vh - 20vh)" }}>
@@ -33,12 +33,12 @@ const Shop = () => {
 
       <div className="px-3 lg:px-10 py-4">
         <div className="">
-          <ProductCard />
+          <ProductList products={products}/>
         </div>
-        <div className="flex justify-center">
-          <button className="bg-mainBg text-white py-2 px-4 rounded-sm text-xl font-bold font-mono mr-1">1</button>
-          <button className="bg-mainBg text-white py-2 px-4 rounded-sm text-xl font-bold font-mono mr-1">2</button>
-          <button className="bg-mainBg text-white py-2 px-4 rounded-sm text-xl font-bold font-mono">
+        <div className="hidden justify-center">
+          <button className="bg-mainBg py-2 px-4 text-xl font-bold font-mono mr-1">1</button>
+          <button className="bg-mainBg py-2 px-4 text-xl font-bold font-mono mr-1">2</button>
+          <button className="bg-mainBg py-1 px-3 text-xl font-bold font-mono">
           <FaArrowRight size={16} className=""/>
           </button>
         </div>
