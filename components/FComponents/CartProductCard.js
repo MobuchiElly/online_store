@@ -9,8 +9,8 @@ const CheckoutProductCard = ({product}) => {
   }
 
   return (
-    <div className="md:px-2 py-2 flex">
-      <div className="rounded-lg overflow-hidden flex w-full md:w-[80%] lg:w-[90%]">
+    <div className="lg:px-2 py-2 flex">
+      <div className="rounded-lg overflow-hidden flex w-full border md:w-[80%] lg:w-[90%]">
         <div className="relative w-2/5 h-64 pl-2 py-1 md:px-10 lg:px-20">
           <div className="h-64 bg-slate-100">
               <Image
@@ -23,16 +23,16 @@ const CheckoutProductCard = ({product}) => {
           </div>
         </div>
 
-        <div className="pt-10 md:pt-5 px-1 md:px-4 md:p-4 border w-2/4 lg:flex lg:flex-col lg:justify-center ">
+        <div className="pt-10 md:pt-5 px-1 md:px-4 md:p-4 w-3/5 lg:flex lg:flex-col lg:justify-center">
           <h3 className="text-sm font-extralight mb-2">Designed by Feramo</h3>
           <p className="mb-2 font-bold">{product.name}</p>
 
-          <div className="flex justify-between items-center text-sm">
-            <span className="text-lg font-bold mr-4">Variations: </span>
-            <button className="border border-black w-12 mx-1 py-1">S</button>
-            <button className="border border-black w-12 mx-1 py-1">M</button>
-            <button className="border border-black w-12 mx-1 py-1">L</button>
-            <button className="border border-black w-12 px-1 ml-1 py-1">XXL</button>
+          <div className="flex  items-center text-sm">
+            <span className="text-lg font-bold md:mr-4 ">Variation:</span>
+            <button className="border border-black mx-1 p-1 md:px-3  md:mx-2">S</button>
+            <button className="border border-black  mx-1 p-1">M</button>
+            <button className="mx-1 px-3 py-2 md:px-3 md:mx-2 bg-mainBg text-white">L</button>
+            <button className="border border-black p-1 ml-1 py-1 md:px-3  md:mx-2">XXL</button>
           </div>
           <div className="items-center my-2">
             <span className="text-lg font-bold">Price: {product.price}</span>

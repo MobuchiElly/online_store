@@ -14,7 +14,7 @@ const Cart = () => {
         <p className="text-white text-center font-extralight">Exclusive Mens Collection</p>
         <div className="border w-[60vw] lg:w-[40vw]"></div>
       </div>
-      <div className="px-5 lg:px-12 py-4">
+      <div className=" px-2 md:px-5 lg:px-12 py-4">
         <div>
           <h1 className="text-2xl font-bold lg:text-center mb-5 pt-2 capitalize">Cart Summary</h1>
         
