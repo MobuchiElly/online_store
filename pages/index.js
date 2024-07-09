@@ -1,4 +1,3 @@
-
 const index = () => {
   return (
     <div style={{height:"calc(100vh - 20vh)"}}>

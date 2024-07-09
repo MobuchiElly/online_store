@@ -42,7 +42,7 @@ const ProductCard = ({product}) => {
           </div>
           <div className="flex justify-between items-center my-2">
             <span className="text-lg font-bold">{product.price}</span>
-            <button className="bg-mainBg hover:bg-layoutMainBg text-white py-2 px-3 rounded-lg text-semibold" onClick={handleAddCart}>Add to Cart</button>
+            <button className="bg-mainBg hover:scale-105 text-white py-2 px-3 rounded-lg text-semibold" onClick={handleAddCart}>Add to Cart</button>
           </div>
         </div>
         <p className="px-4 text-center py-2 text-sm">30 days money back guarantee</p>
