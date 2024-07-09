@@ -216,7 +216,7 @@ const Checkout = () => {
                 <span className="font-semibold">5099</span>
               </p>
               <div className=" pt-6 pb-1">
-                <button className="w-full bg-mainBg hover:bg-layoutMainBg hover:scale-105 py-3 px-6 rounded-xl text-white font-semibold text-sans" onClick={handleCheckout}>
+                <button className="w-full bg-mainBg hover:bg-layoutMainBg hover:scale-105 py-3 px-6 rounded-xl text-black font-semibold text-sans" onClick={handleCheckout}>
                   Complete checkout
                 </button>
               </div>

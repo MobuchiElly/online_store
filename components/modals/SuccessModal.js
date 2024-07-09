@@ -29,7 +29,7 @@ const SuccessModal = ({closeModal}) => {
           <div className="flex justify-center items-center mt-8 font-semibold">
             Paid successfully
           </div>
-          <div className="bg-layoutMainBg rounded-3xl mx-10 mt-20 p-2 text-white" onClick={() => setError("This feature would be available shortly after I have built the backend")}>
+          <div className="bg-layoutMainBg rounded-3xl mx-10 mt-20 p-2 text-black" onClick={() => setError("This feature would be available shortly after I have built the backend")}>
             Download Receipt
           </div>
           {
