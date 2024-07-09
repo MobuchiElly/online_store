@@ -26,8 +26,8 @@ const Shop = () => {
         </div>
       </div>
 
-      <div className="bg-[#000000E5] py-2 flex flex-col items-center">
-        <p className="text-white text-center font-extralight">Explore Mens Collection</p>
+      <div className="bg-[#000000E5] py-4 flex flex-col items-center">
+        <p className="text-white text-center font-extralight">Exclusive Mens Collection</p>
         <div className="border w-[60vw] lg:w-[40vw]"></div>
       </div>
 
