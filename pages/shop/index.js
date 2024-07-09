@@ -35,7 +35,7 @@ const Shop = () => {
         <div className="">
           <ProductList products={products}/>
         </div>
-        <div className="flex justify-center text-white">
+        <div className="flex justify-center text-black">
           <button className="bg-mainBg py-2 px-4 rounded-sm text-xl font-bold font-mono mr-1 hover:scale-105">1</button>
           <button className="bg-mainBg py-2 px-4 rounded-sm text-xl font-bold font-mono mr-1 hover:scale-105">2</button>
           <button className="bg-mainBg hover:scale-105 py-2 px-4 rounded-sm text-xl font-bold font-mono">

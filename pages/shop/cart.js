@@ -36,7 +36,7 @@ const Cart = () => {
               <CartProductCard product={products[2]}/>
               </section>
               <section className="h-16 mb-3 md:mb-6 border-b border-slate-400 mt-2">
-                <div className="flex justify-center items-center h-full"><Link href="/shop/checkout" className="bg-mainBg rounded-xl w-[80%] textwhite py-3 text-white font-bold text-center hover:bg-[#C05F3C]">Proceed to checkout $150</Link></div>
+                <div className="flex justify-center items-center h-full"><Link href="/shop/checkout" className="bg-mainBg rounded-xl w-[80%] textwhite py-3 text-black font-bold text-center hover:bg-[#C05F3C]">Proceed to checkout $150</Link></div>
               </section>
             </main>
         
