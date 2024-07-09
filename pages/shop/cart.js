@@ -22,7 +22,7 @@ const Cart = () => {
             <main className="w-full lg:w-2/3">
               <section className="border-b border-slate-400 font-semibold lg:px-6">
                 <p className="inline-flex font-semibold text-lg">
-                  <span className="bg-mainBg rounded-full flex justify-center items-center h-7 w-8 text-white mr-2 text-lg font-bold">3</span> Item(s) Selected
+                  <span className="bg-mainBg rounded-full flex justify-center items-center h-7 w-8 text-black mr-2 text-lg font-bold">3</span> Item(s) Selected
                 </p>
                 <p className="pl-1 p-1">Subtotal: <span className="font-bold text-xl">$150.00</span></p>
               </section>
