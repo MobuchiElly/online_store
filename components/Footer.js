@@ -7,13 +7,13 @@ const Footer = () => {
   return (
     <div className="h-auto min-h-20 bg-layoutMainBg  font-semibold font-sans w-full bottom-0 px-3 py-2 lg:py-3 lg:px-9 text-lg text-white z-40">
       <div className="py-2 my-2 px-5 md:px-0"><Image src="/images/logo.png" width="140" height="120"/></div>
-      <div className="w-full md:flex md:gap-2 px-5 md:px-0">
-        <div className="md:w-2/5 md:py-2">
+      <div className="flex gap-2 px-5 md:px-0">
+        <div className="w-2/4 md:w-2/5 md:py-2">
           <p className="mb-2 mt-1">Lapis Store International</p>
           <p className="">Lagos Ikeja</p>
           <p className="py-1">Nigeria</p>
         </div>
-        <div className="md:w-2/5 md:px-0 md:py-2">
+        <div className="w-2/4 md:w-2/5 md:px-0 md:py-2">
           <span className="mb-2 mt-1">About the club</span>
           <p className="py-1">Contact Us</p>
           <p className="py-1">More</p>
