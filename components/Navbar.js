@@ -26,7 +26,7 @@ const Navbar = () => {
           <Image src="/images/logo.png" height="100" width="100" className="ml-2 w-24 h-10"/>
         </div>
         <div className="lg:w-2/4 hidden lg:flex justify-around p-1">
-          <Link href="/shop" className="text-black hover:scale-105">Shop</Link>
+          <Link href="/shop" className="text-yellow-200 hover:scale-105">Shop</Link>
         </div>
         <div className="lg:w-1/4 flex lg:justify-end items-center h-12">
           <Link href="/shop/cart" className="relative">
