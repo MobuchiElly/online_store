@@ -21,7 +21,7 @@ const CheckoutProductCard = ({product}) => {
                 className="rounded-t-lg p-1"
               />
           </div>
-          <div className="lg:hidden flex pl-10">
+          <div className="md:hidden flex pl-10">
             <button className="py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-mainBg lg:text-black lg:bg-white font-semibold mr-8 text-sm hover:scale-105">Delete</button>
           </div>
         </div>
@@ -43,7 +43,7 @@ const CheckoutProductCard = ({product}) => {
               <span className="hidden lg:block mr-2 font-semibold text-lg pt-1">Price: </span>{product.price}</p>
           </div>
           <div className="flex justify-between items-center font-semibold">
-            <button className="hidden lg:block py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-layoutMainBg lg:text-black lg:bg-white font-medium mr-8 text-sm hover:scale-105">Delete</button>
+            <button className="hidden md:block py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-layoutMainBg lg:text-black lg:bg-white font-medium mr-8 text-sm hover:scale-105">Delete</button>
             <div className="flex">
               <button className="border border-black px-3 py-1 mx-2 hover:scale-105 bg-mainBg">-</button>
               <span className="mx-4 text-lg font-bold pt-1">1</span>
