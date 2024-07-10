@@ -42,6 +42,7 @@ const CheckoutProductCard = ({product}) => {
             <p className="text-2xl font-bold lg:text-right pr-14 lg:pr-6 lg:flex">
               <span className="hidden lg:block mr-2 font-semibold text-lg pt-1">Price: </span>{product.price}</p>
           </div>
+          <p className="lg:hidden">Few units in stock</p>
           <div className="flex justify-between items-center font-semibold">
             <button className="hidden md:block py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-layoutMainBg lg:text-black lg:bg-white font-medium mr-8 text-sm hover:scale-105">Delete</button>
             <div className="flex">
