@@ -30,11 +30,12 @@ const Shop = () => {
         <p className="text-white text-center font-extralight">Exclusive Mens Collection</p>
         <div className="border w-[60vw] lg:w-[40vw]"></div>
       </div>
-
+      
       <div className="px-3 lg:px-10 py-4">
         <div className="">
           <ProductList products={products}/>
         </div>
+        <div className="border-b border-black my-2 mb-4"></div>
         <div className="flex justify-center text-black">
           <button className="bg-mainBg py-2 px-4 rounded-sm text-xl font-bold font-mono mr-1 hover:scale-105">1</button>
           <button className="bg-mainBg py-2 px-4 rounded-sm text-xl font-bold font-mono mr-1 hover:scale-105">2</button>
