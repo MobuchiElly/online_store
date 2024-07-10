@@ -91,7 +91,7 @@ const Footer = () => {
         </li>
       </ul>      
       <span>
-      <p className="text-center">&copy; <span className="">{new Date().getFullYear()}</span> Lapis Store International.<span className='ml-2 block md:inline-flex'>All Rights Reserved.</span></p>
+      <p className="text-center"><span className="">Copy Right</span> Lapis Store International.<span className='ml-2 block md:inline-flex'>All Rights Reserved.</span></p>
       </span>
     </div>
   )
