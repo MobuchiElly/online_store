@@ -22,7 +22,7 @@ const CheckoutProductCard = ({product}) => {
               />
           </div>
           <div className="md:hidden flex pl-10">
-            <button className="py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-mainBg lg:text-black lg:bg-white font-semibold mr-8 text-sm hover:scale-105">Delete</button>
+            <button className="py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-mainBg lg:text-black lg:bg-white font-semibold mr-8 text-sm hover:scale-105 z-10">Delete</button>
           </div>
         </div>
 
