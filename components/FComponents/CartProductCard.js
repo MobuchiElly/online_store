@@ -30,8 +30,8 @@ const CheckoutProductCard = ({product}) => {
           <h3 className="text-sm font-extralight mb-2">Designed by Feramo</h3>
           <p className="mb-2 font-bold">{product.name}</p>
 
-          <div className="lg:flex items-center text-sm">
-            <p className="text-base font-bold md:mr-4 ">Variation:</p>
+          <div className="text-sm">
+            <p className="text-base font-bold md:mr-4 pl-2">Variation:</p>
             <button className="border border-black mx-1 p-1 md:px-3  md:mx-2">S</button>
             <button className="border border-black  mx-1 p-1">M</button>
             <button className="mx-1 px-3 py-2 md:px-3 md:mx-2 bg-mainBg text-white">L</button>
