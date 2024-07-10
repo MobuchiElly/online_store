@@ -34,6 +34,7 @@ const Navbar = () => {
               <span className="text-layoutMainBg font-medium text-base">3</span>
             </div>
             <Image src="/images/cart.png" alt="cart" width="44" height="40" className="inline-flex w-8 h-auto hover:bg-layoutMainBg hover:scale-105"/>
+            <span className="hidden lg:inline-flex font-normal text-base pl-1">cart</span>
           </Link>
       
           <div className="hidden lg:block h-9 w-1 ml-5 mr-1 font-extralight border-l-2 border-white"></div>
