@@ -19,7 +19,7 @@ const Cart = () => {
           <h1 className="text-2xl font-bold lg:text-center mb-5 pt-2 capitalize">Cart Summary</h1>
         
           <div className="lg:flex">
-            <main className="w-full lg:w-4/5">
+            <main className="w-full">
               <section className="border-b border-slate-400 font-semibold lg:px-6">
                 <p className="inline-flex font-semibold text-lg">
                   <span className="bg-mainBg rounded-full flex justify-center items-center h-7 w-8 text-black mr-2 text-lg font-bold">3</span> Item(s) Selected

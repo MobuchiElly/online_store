@@ -32,11 +32,11 @@ const CheckoutProductCard = ({product}) => {
 
           <div className="text-sm">
             <p className="text-base font-bold md:mr-4 pl-2">Variation:</p>
-            <button className="border border-black mx-1 p-1 md:px-3  md:mx-2">S</button>
-            <button className="border border-black  mx-1 p-1">M</button>
-            <button className="mx-1 px-3 py-2 md:px-3 md:mx-2 bg-mainBg text-white">L</button>
-            <button className="border border-black p-1 ml-1 py-1 md:px-3  md:mx-2">XL</button>
-            <button className="border border-black p-1 ml-1 py-1 md:px-3  md:mx-2">XXL</button>
+            <button className="border border-black mx-1 py-1 px-2  md:mx-2">S</button>
+            <button className="border border-black  mx-1 py-1 px-2">M</button>
+            <button className="mx-1 py-2 px-3 lg:px-4 md:mx-2 bg-mainBg text-white">L</button>
+            <button className="border border-black ml-1 py-1 px-2  md:mx-2">XL</button>
+            <button className="border border-black  ml-1 py-1 px-1  md:mx-2">XXL</button>
           </div>
           <div className="flex items-center my-2">
             <p className="text-2xl font-bold lg:text-right pr-14 lg:pr-6 lg:flex">
