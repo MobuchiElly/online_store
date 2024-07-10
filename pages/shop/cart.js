@@ -16,13 +16,18 @@ const Cart = () => {
       </div>
       <div className=" px-2 md:px-5 lg:px-12 py-4">
         <div>
-          <h1 className="text-2xl font-bold lg:text-center mb-5 pt-2 capitalize">Cart Summary</h1>
+          
           <main className="w-full">
-            <section className="border-b border-slate-400 font-semibold lg:px-6">
-              <p className="inline-flex font-semibold text-lg">
-                <span className="bg-mainBg rounded-full flex justify-center items-center h-7 w-8 text-black mr-2 text-lg font-bold">3</span> Item(s) Selected
-              </p>
-              <p className="pl-1 p-1">Subtotal: <span className="font-bold text-xl">$150.00</span></p>
+            <section className="border-b border-slate-400 font-semibold px-4 lg:px-6">
+            <div className="lg:flex gap-80 lg:pl-16">
+              <h1 className="hidden lg:block text-2xl font-bold lg:text-center mb-5 pt-2 capitalize">Cart Summary</h1>
+                <div className="">
+                  <p className="inline-flex font-semibold text-lg">
+                    <span className="bg-mainBg rounded-full flex justify-center items-center h-7 w-8 text-black mr-2 text-lg font-bold">3</span> Item(s) Selected
+                  </p>
+                  <p className="pl-7 p-1">Subtotal: <span className="font-bold text-xl">$150.00</span></p>
+                </div>
+            </div>
             </section>
             <section className="border-b border-slate-400">
             <CartProductCard product={products[0]}/>
