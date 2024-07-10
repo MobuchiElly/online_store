@@ -38,12 +38,12 @@ const CheckoutProductCard = ({product}) => {
             <button className="border border-black p-1 ml-1 py-1 md:px-3  md:mx-2">XL</button>
             <button className="border border-black p-1 ml-1 py-1 md:px-3  md:mx-2">XXL</button>
           </div>
-          <div className="flex items-center my-2 lg:justify-end">
+          <div className="flex items-center my-2">
             <p className="text-2xl font-bold lg:text-right pr-14 lg:pr-6 lg:flex">
               <span className="hidden lg:block mr-2 font-semibold text-lg pt-1">Price: </span>{product.price}</p>
           </div>
           <p className="lg:hidden">Few units in stock</p>
-          <div className="flex justify-between items-center font-semibold">
+          <div className="flex items-center font-semibold">
             <button className="hidden md:block py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-layoutMainBg lg:text-black lg:bg-white font-medium mr-8 text-sm hover:scale-105">Delete</button>
             <div className="flex">
               <button className="border border-black px-3 py-1 mx-2 hover:scale-105 bg-mainBg">-</button>
