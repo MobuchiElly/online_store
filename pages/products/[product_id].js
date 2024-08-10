@@ -1,40 +1,22 @@
-import {useState, useEffect} from "react";
-import Image from "next/image";
-import { useDispatch } from "react-redux";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { addItem } from "@/utils/redux/features/cartSlice";
+import {useState, useEffect} from 'react'
+import Image from 'next/image'
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
-const ProductCard = ({product}) => {
+const Product = ({product}) => {
   const [price, setPrice] = useState(null);
-  const dispatch = useDispatch();
   const router = useRouter();
-  const [quantity, setQuantity] = useState(1);
-
   const baseURL = "https://api.timbu.cloud/images/";
-  
+
   const handleAddCart = () => {
-    dispatch(addItem({...product, price, quantity}));
-    console.log('successfully added item to cart');
+    router.push("/shop/cart");  
   }
-
-  const handlePrice = () => {
-    try{
-      const product_price = product.current_price[0]["NGN"][0];
-      product_price ? setPrice(product_price) : null;
-    } catch(err){
-      console.log(err);
-    }
-  }
-
-  useEffect(() => {
-    handlePrice();
-  }, []);
+  
   return (
     <div className="p-2">
-      <div href={"/shop/product/" + product.id} className="shadow-md border border-gray-200 rounded-lg overflow-hidden">
+      <div className="shadow-md border border-gray-200 rounded-lg overflow-hidden">
         <div className="relative w-full h-64 md:px-10 py-1">
-          <div className="h-64">
+          <div className="h-64 bg-gray-50">
               <Image
                 src={baseURL + product.photos[0]?.url}
                 alt="product-image"
@@ -60,14 +42,33 @@ const ProductCard = ({product}) => {
             <button className="border border-black w-12 px-1 py-1 ml-1">XXL</button>
           </div>
           <div className="flex justify-between items-center my-2">
-            <span className="text-lg font-bold">&#8358;{price}</span>
+            <span className="text-lg font-bold">&#8358;{product.current_price}</span>
             <button className="bg-mainBg hover:scale-105 text-black py-2 px-3 rounded-lg text-semibold" onClick={handleAddCart}>Add to Cart</button>
           </div>
         </div>
         <p className="px-4 text-center py-2 text-sm">30 days money back guarantee</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default Product
+
+
+export const getServerSideProps = async({params}) => {
+  try {
+    const res = await axios.get(`https://api.timbu.cloud/products/${params.product_id}?organization_id=${process.env.NEXT_PUBLIC_ORG_ID}&Apikey=${process.env.NEXT_PUBLIC_API_KEY}&Appid=${process.env.NEXT_PUBLIC_APP_ID}`);
+    const data = await res.data;
+    return {
+      props: {
+        product: data
+      }
+    }
+  } catch(err) {
+    return {
+      props: {
+        product: []
+      }
+    }
+  }
+}
