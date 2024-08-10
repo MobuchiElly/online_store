@@ -46,7 +46,7 @@ const Cart = ({products}) => {
                     ))
                   }
                 </div>
-                <aside className={`hidden lg:flex border border-slate-400 ml-2 px-2 py-2 w-1/5 justify-center`}>
+                {cart.quantity > 2 && <aside className={`hidden lg:flex border border-slate-400 ml-2 px-2 py-2 w-1/5 justify-center`}>
                   <div>
                     <p className="font-bold text-xl text-center mt-4">Top Products of the Week</p>
                     {
@@ -55,7 +55,7 @@ const Cart = ({products}) => {
                       ))
                     }
                   </div>
-                </aside>
+                </aside>}
               </div>
 
               <div className="h-16 mb-3 md:mb-6 border-b border-slate-400 mt-2">
