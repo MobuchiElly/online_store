@@ -79,7 +79,7 @@ const Cart = ({products}) => {
             }
           </main>
           {/* Over here the product suggestions appear */}
-          {suggestedProducts && 
+          {suggestedProducts && suggestedProducts.length > 0 && 
           <section>
             <div className="h-20 pt-4 pb-1 flex items-center">
               <p className="font-bold text-xl lg:px-6">You may also like</p>
