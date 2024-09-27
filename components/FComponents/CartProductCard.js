@@ -26,7 +26,9 @@ const CheckoutProductCard = ({product}) => {
 
   return (
     <div className="lg:px-2 py-2 flex">
-      <div className="rounded-lg overflow-hidden flex w-full border md:w-[80%] lg:w-[90%]">
+      {
+        product && 
+        <div className="rounded-lg overflow-hidden flex w-full border md:w-[80%] lg:w-[90%]" id={product._id}>
         <div className="flex flex-col lg:block relative w-2/5 h-64 pl-2 py-1 md:px-10 lg:px-20">
           <div className="h-64 bg-slate-50">
               {product && <Image
@@ -69,6 +71,7 @@ const CheckoutProductCard = ({product}) => {
           </div>
         </div>
       </div>
+      }
     </div>
   );
 };

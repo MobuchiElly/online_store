@@ -7,7 +7,6 @@ const Product = ({product}) => {
   const [price, setPrice] = useState(null);
   const router = useRouter();
   
-  
   const handleAddCart = () => {
     router.push("/shop/cart");  
   }
