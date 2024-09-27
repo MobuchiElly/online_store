@@ -32,7 +32,7 @@ const Index = ({products, currentPage, totalPages}) => {
         </div>
         <div className="min-h-[50vh] my-2 text-white text-3xl flex md:py-10 font-semibold font-sans">
             <div>
-              <p className="my-3">FIND YOUR</p> <p className="my-3">TRUE <span className="font-serif text-4xl font-medium">STYLE</span></p> HERE
+              <p className="my-3">FIND YOUR </p> <p className="my-3">TRUE <span className="font-serif text-4xl font-medium">STYLE</span></p> HERE
             </div>
         </div>
       </div>
