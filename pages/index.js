@@ -70,7 +70,7 @@ export default Index;
 export const getServerSideProps = async ({query}) => {
   const page = query.page || 1;
   try {
-      const res = await axios.get(`${process.env.ENDPOINT_URL}`);
+      const res = await axios.get(`${process.env.ENDPOINT_URL}?page=${page}&size=${8}`);
       const data = await res.data.data;
       const total = await res.data.total;
       const totalPages = Math.ceil(total/8);
