@@ -6,8 +6,8 @@ import { useRouter } from 'next/router';
 const Product = ({product}) => {
   const [price, setPrice] = useState(null);
   const router = useRouter();
-  const baseURL = "https://api.timbu.cloud/images/";
-
+  
+  
   const handleAddCart = () => {
     router.push("/shop/cart");  
   }
@@ -18,7 +18,7 @@ const Product = ({product}) => {
         <div className="relative w-full h-64 md:px-10 py-1">
           <div className="h-64 bg-gray-50">
               <Image
-                src={baseURL + product.photos[0]?.url}
+                src={product?.images[0]?.url}
                 alt="product-image"
                 layout="fill"
                 objectFit="contain"
@@ -32,7 +32,7 @@ const Product = ({product}) => {
         
         <div className="px-4">
           <h3 className="text-sm font-extralight mb-2">Designed by Feramo</h3>
-          <p className="mb-2 font-bold">{product.name}</p>
+          <p className="mb-2 font-bold">{product.title}</p>
 
           <div className="hidden justify-between items-center text-sm">
             <span className="text-lg font-bold mr-4">Variations: </span>
@@ -42,7 +42,7 @@ const Product = ({product}) => {
             <button className="border border-black w-12 px-1 py-1 ml-1">XXL</button>
           </div>
           <div className="flex justify-between items-center my-2">
-            <span className="text-lg font-bold">&#8358;{product.current_price}</span>
+            <span className="text-lg font-bold">&#8358;{product.price}</span>
             <button className="bg-mainBg hover:scale-105 text-black py-2 px-3 rounded-lg text-semibold" onClick={handleAddCart}>Add to Cart</button>
           </div>
         </div>
@@ -56,9 +56,9 @@ export default Product
 
 
 export const getServerSideProps = async({params}) => {
-  try {
-    const res = await axios.get(`https://api.timbu.cloud/products/${params.product_id}?organization_id=${process.env.NEXT_PUBLIC_ORG_ID}&Apikey=${process.env.NEXT_PUBLIC_API_KEY}&Appid=${process.env.NEXT_PUBLIC_APP_ID}`);
-    const data = await res.data;
+  try { console.log(params);
+    const res = await axios.get(`${process.env.ENDPOINT_URL}/${params.product_id}`);
+    const data = await res.data.data;
     return {
       props: {
         product: data

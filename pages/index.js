@@ -1,8 +1,19 @@
 import axios from "axios";
 import ProductList from "@/components/FComponents/ProductList";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { useRouter } from "next/router";
+import { current } from "@reduxjs/toolkit";
+import {fadeLoader} from 'react-spinners';
 
-const Index = ({products}) => {
+const Index = ({products, currentPage, totalPages}) => {
+  const router = useRouter();
+  const handlePagination = (newPage) => {
+    router.push({
+      pathname: '/',
+      query: { page: newPage}
+    })
+  }
+
   const backgroundImage = "url('/images/bannerDesktop.png')";
     const bgImageStyle = {
         backgroundImage: backgroundImage,
@@ -37,14 +48,18 @@ const Index = ({products}) => {
         </div>
         <div className="border-b border-black my-2 mb-4 shadow"></div>
         <div className="flex justify-center text-black">
-          <button className="bg-mainBg py-2 px-4 rounded font-bold font-mono mr-1 hover:scale-105">1</button>
-          <button className="bg-mainBg py-2 px-4 rounded font-bold font-mono mr-1 hover:scale-105">2</button>
-          <button className="bg-mainBg hover:scale-105 py-2 px-4 rounded font-bold font-mono">
-          <FaArrowRight size={14} className=""/>
+          <button className="bg-mainBg py-2 px-4 rounded font-bold font-mono mr-1 hover:scale-105" onClick={() => handlePagination(currentPage - 1)} disabled={currentPage <= 1}>
+            <FaArrowLeft size={14}/>
+          </button>
+          <button className="bg-mainBg py-2 px-4 rounded font-bold font-mono mr-1 hover:scale-105" onClick={() => handlePagination(currentPage)}>{currentPage}</button>
+          <button className="bg-mainBg hover:scale-105 py-2 px-4 rounded font-bold font-mono" onClick={() => handlePagination(currentPage + 1)} disabled={currentPage >= totalPages}>
+          <FaArrowRight size={14}/>
           </button>
         </div>
       </div>
-      
+      <div>
+
+      </div>      
     </div>
   );
 };
@@ -52,13 +67,18 @@ const Index = ({products}) => {
 export default Index;
 
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({query}) => {
+  const page = query.page || 1;
   try {
-      const res = await axios.get(`https://api.timbu.cloud/products?organization_id=${process.env.NEXT_PUBLIC_ORG_ID}&Appid=${process.env.NEXT_PUBLIC_APP_ID}&Apikey=${process.env.NEXT_PUBLIC_API_KEY}`);
-      const data = res.data.items;
+      const res = await axios.get(`${process.env.ENDPOINT_URL}`);
+      const data = await res.data.data;
+      const total = await res.data.total;
+      const totalPages = Math.ceil(total/8);
       return {
           props: {
               products: data,
+              currentPage: parseInt(page, 10),
+              totalPages: totalPages,
           },
       };
   } catch (error) {
@@ -66,6 +86,7 @@ export const getServerSideProps = async () => {
       return {
           props: {
               products: [],
+              currentPage: parseInt(page, 10),
           },
       };
   }

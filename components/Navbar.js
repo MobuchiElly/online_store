@@ -9,7 +9,7 @@ const Navbar = () => {
   const [acctDropDwnOpen, setAcctDropDwnOpen] = useState(false);
   const [toggleNav, setToggleNav] = useState(false);
   const quantity = useSelector(state => state.lapiscart.quantity ? state.lapiscart.quantity : 0);
-console.log(quantity)
+
   const handleToggleNav = () => {
     setToggleNav(!toggleNav);
   }

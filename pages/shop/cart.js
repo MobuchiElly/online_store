@@ -11,8 +11,8 @@ const Cart = ({products}) => {
   const [suggestedProducts, setsuggestedProducts] = useState([]);
   
   useEffect(() => {
-    const cartedProductsIds = cart.items.map(product => product.id); 
-    const suggested = products?.filter(product => !cartedProductsIds.includes(product.id));
+    const cartedProductsIds = cart.items.map(product => product._id); 
+    const suggested = products?.filter(product => !cartedProductsIds.includes(product._id));
     setsuggestedProducts(suggested);
   }, [cart.items, products]);
   
@@ -42,7 +42,7 @@ const Cart = ({products}) => {
                 <div className="bg-white lg:w-4/5">
                   {
                     cart && cart.items.map(product => (
-                      <CartProductCard product={product}/>
+                      <CartProductCard product={product} id={product._id}/>
                     ))
                   }
                 </div>
@@ -51,7 +51,7 @@ const Cart = ({products}) => {
                     <p className="font-bold text-xl text-center mt-4">Top Products of the Week</p>
                     {
                       suggestedProducts.slice(4,6).map(product => (
-                        <ProductCard product={product} id={product.id}/>
+                        <ProductCard product={product} id={product._id}/>
                       ))
                     }
                   </div>
@@ -99,8 +99,8 @@ export default Cart;
 
 export const getServerSideProps = async () => {
   try {
-      const res = await axios.get(`https://api.timbu.cloud/products?organization_id=${process.env.NEXT_PUBLIC_ORG_ID}&Appid=${process.env.NEXT_PUBLIC_APP_ID}&Apikey=${process.env.NEXT_PUBLIC_API_KEY}`);
-      const data = res.data.items;
+      const res = await axios.get("http://localhost:7000/api/v1");
+      const data = res.data.data;
       return {
           props: {
               products: data,
