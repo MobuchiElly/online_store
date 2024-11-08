@@ -8,8 +8,13 @@ import axios from 'axios';
 
 const Cart = ({products}) => {
   const cart = useSelector(state => state.lapiscart);
+  const [itemsTotal, setitemsTotal] = useState(cart.quantity);
   const [suggestedProducts, setsuggestedProducts] = useState([]);
-  
+
+  const updateQuantity = () => {
+
+  };
+
   useEffect(() => {
     const cartedProductsIds = cart.items.map(product => product._id); 
     const suggested = products?.filter(product => !cartedProductsIds.includes(product._id));
@@ -42,7 +47,7 @@ const Cart = ({products}) => {
                 <div className="bg-white lg:w-4/5">
                   {
                     cart && cart.items.map(product => (
-                      <CartProductCard product={product} id={product._id}/>
+                      <CartProductCard product={product} id={product._id} updateQuantity={updateQuantity}/>
                     ))
                   }
                 </div>
@@ -78,7 +83,7 @@ const Cart = ({products}) => {
             </section> 
             }
           </main>
-          {/* Over here the product suggestions appear */}
+          
           {suggestedProducts && suggestedProducts.length > 0 && 
           <section>
             <div className="h-20 pt-4 pb-1 flex items-center">

@@ -1,98 +1,32 @@
 import React from 'react'
-import Image from 'next/image';
-import { FaYoutubeSquare,  FaStaylinked, FaFacebook, FaFacebookSquare, FaInstagram, FaInstagramSquare, FaTwitter, FaTwitterSquare, FaCcVisa, FaYoutube } from 'react-icons/fa';
-
 
 const Footer = () => {
   return (
-    <div className="h-auto min-h-20 bg-layoutMainBg  font-semibold font-sans w-full bottom-0 px-3 py-2 lg:py-3 lg:px-9 text-lg text-white z-40">
-      <div className="py-2 my-2 px-5 md:px-0"><Image src="/images/logo.png" width="140" height="120"/></div>
-      <div className="flex gap-2 px-5 md:px-0">
-        <div className="w-2/4 md:w-2/5 md:py-2">
-          <p className="mb-2 mt-1">Lapis Store International</p>
-          <p className="">Lagos Ikeja</p>
-          <p className="py-1">Nigeria</p>
+    <div className='bg-[#0D1821] text-white border p-8'>
+      {/* Top */}
+      <div className='lg:flex lg:flex-row-reverse border h-full space-y-8'>
+      <div className='border space-y-3 my-2'>
+          <div className='uppercase font-bold text-lg'>Sign up for discounts and updates</div>
+          <div className='pr-8'>
+            <input type="text" className='rounded-lg outline-none border-0 w-full bg-white bg-opacity-20 p-4'/>
+          </div>
+          <button className='bg-layoutMainBg px-6 py-2 rounded'>Subscribe</button>
         </div>
-        <div className="w-2/4 md:w-2/5 md:px-0 md:py-2">
-          <span className="mb-2 mt-1">About the club</span>
-          <p className="py-1">Contact Us</p>
-          <p className="py-1">More</p>
-          <p className="py-1">FQA</p>
+        <div className='border space-y-2'>
+          <div className='uppercase'>Contact us</div>
+          <div>08134923317</div>
+          <div>Online store, Lagos Nigeria</div>
+          <div className=''>
+            <span><image src="/images/mastercard.png"/></span>
+            <span><image src="visa-logo.png"/></span>
+            <span><image src="verve.png"/></span>
+          </div>
         </div>
-        {/* Desktop */}
-        <ul className="hidden md:flex lg:flex-col justify-center py-1 1/5">
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 lg:mb-1">
-              <FaFacebook size={27}/>
-            </span>
-            <span className="hidden lg:block ml-2 mb-2 p-1 ">Facebook</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-1">
-              <FaInstagram size={27}/>
-            </span>
-            <span className="hidden lg:block ml-2 mb-2 p-1 ">Instagram</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-1">
-              <FaTwitter size={27} />
-            </span>
-            <span className="hidden lg:block ml-2 mb-2 p-1 ">Twitter</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-2">
-              <FaYoutube size={28}/>
-            </span>
-            <span className="hidden lg:block ml-2 mb-2 p-1 ">Youtube</span>
-          </a>
-        </li>
-        </ul> 
       </div>
-
-      <div className="w-full bg-slate-200 h-[0.5px] my-4 md:my-6 mx-1"></div>
-      {/* Mobile */}
-      <ul className="flex md:hidden justify-center py-1">
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 lg:mb-1">
-              <FaFacebook size={27}/>
-            </span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-1">
-              <FaInstagram size={27}/>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-1">
-              <FaTwitter size={27} />
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-2">
-              <FaYoutube size={28}/>
-            </span>
-          </a>
-        </li>
-      </ul>      
-      <span>
-      <p className="text-center"><span className="">Copy Right</span> Lapis Store International.<span className='ml-2 block md:inline-flex'>All Rights Reserved.</span></p>
-      </span>
+      
+      <div className='border'>
+        (c)Lapis Boutique
+      </div>
     </div>
   )
 }
