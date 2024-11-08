@@ -20,8 +20,8 @@ const ProductCard = ({product}) => {
   }
 
   return (
-    <div className="p-4 md:p-6 max-w-[100%] w-[100%] h-[100%]">
-      <Link href={"/products/" + productId} className="shadow-md border border-gray-200 rounded-xl flex flex-col flex-1 p-1">
+    <div className="p-2 w-full">
+      <Link href={"/products/" + productId} className="shadow-lg border border-gray-200 rounded-xl flex flex-col flex-1">
         <div className="relative w-full bg-slate-100 bg-opacity-5">
           <div className="h-auto">
               <Image
@@ -33,7 +33,7 @@ const ProductCard = ({product}) => {
               />
           </div>
         </div>
-        <div className="hidden md:flex justify-center mt-1">
+        <div className="hidden md:flex justify-center my-2">
             <div className="border border-black w-[30vw] lg:w-[16vw] my-1"></div>
         </div>
         
@@ -48,7 +48,7 @@ const ProductCard = ({product}) => {
           </div>
           <div className="flex flex-col my-2 space-y-4 action-spot">
             <span className="text-lg font-bold">&#8358;{product.price}</span>
-            <button className="text-[#ff7f55] border border-mainBg hover:text-white hover:bg-mainBg py-3 px-3 rounded-lg" onClick={(e) => handleAddCart(e)}>Add to Cart</button>
+            <button className="text-[#ff7f55] border border-mainBg hover:text-white hover:bg-mainBg py-3 px-3 rounded-lg font-bold text-lg" onClick={(e) => handleAddCart(e)}>Add to Cart</button>
           </div>
         </div>
         <p className="px-4 text-center py-2 text-sm">30 days money back guarantee</p>

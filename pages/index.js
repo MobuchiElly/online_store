@@ -67,12 +67,12 @@ const Index = ({ products, currentPage, totalPages }) => {
         </div>
       </div>
 
-      <div className="bg-[#000000E5] py-4 flex flex-col items-center h-57px lg:87px">
+      <div className="bg-[#000000E5] py-5 flex flex-col items-center h-[65px] lg:87px">
         <p className="text-white text-center font-extralight">Exclusive Mens Collection</p>
         <div className="border w-[60vw] lg:w-[40vw]"></div>
       </div>
       <div className="px-3 lg:px-10 py-4">
-        <div className="">
+        <div className="flex justify-center">
           <ProductList products={products} />
         </div>
 

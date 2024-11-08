@@ -12,40 +12,82 @@ const Product = ({product}) => {
   }
   
   return (
-    <div className="p-4 min-h-[30.5vh]">
-      <div className="shadow-md border border-gray-200 rounded-lg overflow-hidden">
-        <div className="relative w-full md:px-10 py-1">
+    <div className="px-3 py-10 lg:p-4 lg:flex justify-center">
+      <div className="shadow-md border border-gray-200 rounded-lg overflow-hidden lg:w-[80%] lg:flex lg:gap-4 md:px-10 py-1">
+        <div className="w-full lg:flex-1">
           <div className="h-full bg-gray-50">
               <Image
                 src={product?.images[0]?.url}
                 alt="product-image"
-                layout="fill"
                 objectFit="cover"
-                className=""
+                width={100}
+                height={100}
+                className="w-full object-cover h-auto rounded-xl"
               />
           </div>
         </div>
-        <div className="hidden md:flex justify-center mt-4">
+ 
+        {/* <div className="hidden md:flex justify-center mt-4">
             <div className="border border-black w-[30vw] lg:w-[16vw] my-1"></div>
-        </div>
+        </div> */}
         
-        <div className="px-4">
-          <h3 className="text-sm font-extralight mb-2">Designed by Feramo</h3>
-          <p className="mb-2 font-bold">{product.title}</p>
-
-          <div className="hidden justify-between items-center text-sm">
-            <span className="text-lg font-bold mr-4">Variations: </span>
-            <button className="border border-black w-12 mx-1 py-1">S</button>
-            <button className="border border-black w-12 mx-1 py-1">M</button>
-            <button className="border border-black w-12 mx-1 py-1">L</button>
-            <button className="border border-black w-12 px-1 py-1 ml-1">XXL</button>
-          </div>
-          <div className="flex justify-between items-center my-2">
-            <span className="text-lg font-bold">&#8358;{product.price}</span>
-            <button className="bg-mainBg hover:scale-105 text-black py-2 px-3 rounded-lg text-semibold" onClick={handleAddCart}>Add to Cart</button>
+        <div className='lg:flex-1 px-0 py-4 lg:p-2'>
+          <div className="lg:px-4 space-y-4">
+            <p className="mb-2 text-3xl font-[600]">
+              {product.title}
+            </p>
+            <div className="flex justify-between items-center my-2">
+              <span className="text-lg font-[600]">Price: &#8358;{product.price}</span>
+            </div>
+            <div className="text-sm">
+              <span className="text-lg font-[600] mr-1">Sizes: </span>
+              <button className="border border-black border-opacity-20 font-semibold rounded-lg w-12 mx-1 py-1">S</button>
+              <button className="border border-black w-12 mx-1 py-1 border-opacity-20 font-semibold rounded-lg">M</button>
+              <button className="border border-black w-12 mx-1 py-1 border-opacity-20 font-semibold rounded-lg">L</button>
+              <button className="border border-black w-12 px-1 py-1 ml-1 border-opacity-20 font-semibold rounded-lg">XXL</button>
+            </div>
+            <div>
+              * * * * * ( 0 ratings )
+            </div>
+            <div className={true ? 'text-green-500' : 'text-red-400'}>
+              Available
+            </div>
+            <div className='rounded-md border lg:w-5/6'>
+              <select value="color" className='w-full px-3 py-4 text-xl font-[500]'>
+                <option defaultValue>Select color</option>
+                <option value={1}>white</option>
+                <option value={1}>red</option>
+                <option value={1}>blue</option>
+                <option value={1}>grey</option>
+              </select>
+            </div>
+            <div className=''>
+              <span className='font-[500]'>Quantity</span>
+              <div>
+                <button className="border border-black border-opacity-20 font-semibold rounded-lg w-12 mx-1 py-1">-</button>
+                <button className="border border-black border-opacity-20 font-semibold rounded-lg w-12 mx-1 py-1">1</button>
+                <button className="border border-black border-opacity-20 font-semibold rounded-lg w-12 mx-1 py-1">+</button>
+              </div>
+            </div>
+            <div className='gap-12 lg:gap-6 flex flex-col-reverse lg:flex-col'>
+              <button className="bg-mainBg bg-opacity-90 lg:bg-opacity-100 hover:bg-layoutMainBg hover:bg-opacity-95 text-white font-bold text-xl py-4 px-3 w-full lg:w-5/6 rounded-xl text-semibold sticky bottom-0" onClick={handleAddCart}>
+                Add to Cart
+              </button>
+              <div className='space-x-6'>
+                <p className='my-1 text-lg'>Share our product to friends</p>
+                <span>
+                  <Image src="/assets/images/twitter-x-icon.svg" alt="icon" width={25} height={20} className="inline-flex"/>
+                </span>
+                <span>
+                  <Image src="/assets/images/facebook-icon.svg" alt="icon" width={25} height={20} className="inline-flex"/>
+                </span>
+                <span>
+                  <Image src="/assets/images/whatsapp-icon.svg" alt="icon" width={25} height={20} className="inline-flex"/>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-        <p className="px-4 text-center py-2 text-sm">30 days money back guarantee</p>
       </div>
     </div>
   )
