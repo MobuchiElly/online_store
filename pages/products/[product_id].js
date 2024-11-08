@@ -12,16 +12,16 @@ const Product = ({product}) => {
   }
   
   return (
-    <div className="p-2">
+    <div className="p-4 min-h-[30.5vh]">
       <div className="shadow-md border border-gray-200 rounded-lg overflow-hidden">
-        <div className="relative w-full h-64 md:px-10 py-1">
-          <div className="h-64 bg-gray-50">
+        <div className="relative w-full md:px-10 py-1">
+          <div className="h-full bg-gray-50">
               <Image
                 src={product?.images[0]?.url}
                 alt="product-image"
                 layout="fill"
-                objectFit="contain"
-                className="rounded-t-lg p-1"
+                objectFit="cover"
+                className=""
               />
           </div>
         </div>
@@ -55,7 +55,7 @@ export default Product
 
 
 export const getServerSideProps = async({params}) => {
-  try { console.log(params);
+  try {
     const res = await axios.get(`${process.env.ENDPOINT_URL}/${params.product_id}`);
     const data = await res.data.data;
     return {

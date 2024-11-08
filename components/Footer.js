@@ -1,98 +1,44 @@
-import React from 'react'
-import Image from 'next/image';
-import { FaYoutubeSquare,  FaStaylinked, FaFacebook, FaFacebookSquare, FaInstagram, FaInstagramSquare, FaTwitter, FaTwitterSquare, FaCcVisa, FaYoutube } from 'react-icons/fa';
+import { useState } from "react"
+import Image from "next/image"
 
 
 const Footer = () => {
-  return (
-    <div className="h-auto min-h-20 bg-layoutMainBg  font-semibold font-sans w-full bottom-0 px-3 py-2 lg:py-3 lg:px-9 text-lg text-white z-40">
-      <div className="py-2 my-2 px-5 md:px-0"><Image src="/images/logo.png" width="140" height="120"/></div>
-      <div className="flex gap-2 px-5 md:px-0">
-        <div className="w-2/4 md:w-2/5 md:py-2">
-          <p className="mb-2 mt-1">Lapis Store International</p>
-          <p className="">Lagos Ikeja</p>
-          <p className="py-1">Nigeria</p>
-        </div>
-        <div className="w-2/4 md:w-2/5 md:px-0 md:py-2">
-          <span className="mb-2 mt-1">About the club</span>
-          <p className="py-1">Contact Us</p>
-          <p className="py-1">More</p>
-          <p className="py-1">FQA</p>
-        </div>
-        {/* Desktop */}
-        <ul className="hidden md:flex lg:flex-col justify-center py-1 1/5">
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 lg:mb-1">
-              <FaFacebook size={27}/>
-            </span>
-            <span className="hidden lg:block ml-2 mb-2 p-1 ">Facebook</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-1">
-              <FaInstagram size={27}/>
-            </span>
-            <span className="hidden lg:block ml-2 mb-2 p-1 ">Instagram</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-1">
-              <FaTwitter size={27} />
-            </span>
-            <span className="hidden lg:block ml-2 mb-2 p-1 ">Twitter</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-2">
-              <FaYoutube size={28}/>
-            </span>
-            <span className="hidden lg:block ml-2 mb-2 p-1 ">Youtube</span>
-          </a>
-        </li>
-        </ul> 
-      </div>
+  const [email, setEmail] = useState("");
 
-      <div className="w-full bg-slate-200 h-[0.5px] my-4 md:my-6 mx-1"></div>
-      {/* Mobile */}
-      <ul className="flex md:hidden justify-center py-1">
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 lg:mb-1">
-              <FaFacebook size={27}/>
-            </span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-1">
-              <FaInstagram size={27}/>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-1">
-              <FaTwitter size={27} />
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="#" className=" inline-flex items-center pr-7">
-            <span className="hover:scale-105 md:pr-4 lg:pr-0 lg:mb-2">
-              <FaYoutube size={28}/>
-            </span>
-          </a>
-        </li>
-      </ul>      
-      <span>
-      <p className="text-center"><span className="">Copy Right</span> Lapis Store International.<span className='ml-2 block md:inline-flex'>All Rights Reserved.</span></p>
-      </span>
+  const handleSubscription = () => {
+
+  }
+
+  return (
+    <div className='bg-[#0D1821] text-white'>
+      {/* Top */}
+      <div className="py-16 pl-8 pr-2 md:px-14">
+        <div className='flex flex-col-reverse md:flex-row md:px-1 lg:px-16 md:space-y-0 h-full'>
+          <div className='space-y-3 flex-1 mt-14 md:mt-0'>
+            <div>
+              <div className='uppercase font-bold text-base md:text-lg'>Contact us</div>
+              <div className="h-[1px] w-16 mr-2 bg-mainBg"></div>
+            </div>
+            <div className="text-sm md:text-base font-[500]"><div className="inline-flex h-3 w-3 mr-2 border-2 border-[#FF7F50]"></div>08134923317</div>
+            <div className="text-sm md:text-base font-[500]"><div className="inline-flex h-3 w-3 mr-2 border-2 border-[#FF7F50]"></div>Online store, Lagos Nigeria</div>
+            <div className=''>
+              <Image src="/assets/images/payment-types-imgs.png" alt="logo" height={120} width={160} className="mt-4 md:w-44"/>
+            </div>
+          </div>
+          <div className='space-y-4 flex-1'>
+            <div className="space-y-1">
+              <div className='uppercase font-bold text-lg md:text-xl'>Sign up for discounts & updates</div>
+              <div className='pr-8 md:pr-0'>
+                <input type="text" placeholder="Enter your email address or phone number" className='rounded-md shadow-md outline-none border-0 w-full bg-white bg-opacity-20 px-4 py-3'/>
+              </div>
+            </div>
+            <button className='bg-layoutMainBg hover:bg-mainBg font-semibold md:font-bold md:text-xl transition duration-300 ease-in-out px-12 py-2 rounded outline-none shadow-md'>Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div className='bg-[#191919] text-center text-white text-opacity-80 text-base font-bold p-6 mt-4 md:mt-6'>
+        Copyright 2023-2024 @Lapis Online Boutique. All Rights Reserved.
+      </div>
     </div>
   )
 }

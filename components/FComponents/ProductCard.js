@@ -20,26 +20,25 @@ const ProductCard = ({product}) => {
   }
 
   return (
-    <div className="p-2">
-      <Link href={"/products/" + productId} className="shadow-md border border-gray-200 rounded-lg overflow-hidden">
-        <div className="relative w-full h-64 md:px-10 py-1">
-          <div className="h-64">
+    <div className="p-4 md:p-6 max-w-[100%] w-[100%] h-[100%]">
+      <Link href={"/products/" + productId} className="shadow-md border border-gray-200 rounded-xl flex flex-col flex-1 p-1">
+        <div className="relative w-full bg-slate-100 bg-opacity-5">
+          <div className="h-auto">
               <Image
                 src={product?.images[0]?.url}
                 alt={product?.images[0]?.altText}
-                layout="fill"
-                objectFit="contain"
-                className="rounded-t-lg p-1"
+                width="100" height="100"
+                objectFit="cover"
+                className="w-full flex-1 object-cover h-auto"
               />
           </div>
         </div>
-        <div className="hidden md:flex justify-center mt-4">
+        <div className="hidden md:flex justify-center mt-1">
             <div className="border border-black w-[30vw] lg:w-[16vw] my-1"></div>
         </div>
         
         <div className="px-4">
-          <h3 className="text-sm font-extralight mb-2">Designed by Feramo</h3>
-          <p className="mb-2 font-bold">{product.title}</p>
+          <p className="mb-2 font-semibold">{product.title}</p>
           <div className="hidden justify-between items-center text-sm">
             <span className="text-lg font-bold mr-4">Variations: </span>
             <button className="border border-black w-12 mx-1 py-1">S</button>
@@ -47,9 +46,9 @@ const ProductCard = ({product}) => {
             <button className="border border-black w-12 mx-1 py-1">L</button>
             <button className="border border-black w-12 px-1 py-1 ml-1">XXL</button>
           </div>
-          <div className="flex justify-between items-center my-2">
+          <div className="flex flex-col my-2 space-y-4 action-spot">
             <span className="text-lg font-bold">&#8358;{product.price}</span>
-            <button className="bg-mainBg hover:scale-105 text-black py-2 px-3 rounded-lg text-semibold" onClick={(e) => handleAddCart(e)}>Add to Cart</button>
+            <button className="text-[#ff7f55] border border-mainBg hover:text-white hover:bg-mainBg py-3 px-3 rounded-lg" onClick={(e) => handleAddCart(e)}>Add to Cart</button>
           </div>
         </div>
         <p className="px-4 text-center py-2 text-sm">30 days money back guarantee</p>

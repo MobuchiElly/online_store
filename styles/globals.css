@@ -12,9 +12,35 @@
 }
 
 html, body{
-  @apply font-roboto
+  /* @apply font-roboto, */
+  scroll-behavior: smooth
+}
+body{
+  font-family:Graphik,Segoe UI,Helvetica Neue;
+  box-sizing: border-box;
+}
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none
+}
+img {
+  overflow-clip-margin: content-box;
+  vertical-align: middle;
+}
+button:focus,input:focus {
+  outline: 0;
 }
 
-.bg-test{
-  background-color: #e95c29;
+button:disabled {
+  /* background: #c7d3dd!important; */
+  cursor: not-allowed
+}
+
+@media only screen and (min-width: 1200px) {
+  .action-spot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }  
 }

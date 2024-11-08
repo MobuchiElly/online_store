@@ -8,14 +8,18 @@ const CheckoutProductCard = ({product}) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const cart = useSelector(state => state.lapiscart);
-  //const [activeSize, setActiveSize] = useState(1);
-  const handleQuantity = (val) => {
-   if(val === "add"){
-    
-   } else if (val === "red"){
+  const [quantity, setQuantity] = useState(product?.quantity);
 
+  //const [activeSize, setActiveSize] = useState(1);
+  const handleQuantity = (val, quantity) => {
+   if(val === "add"){
+      setQuantity((quantity) => quantity + 1);
+   } else if (val === "sub"){
+      if(quantity > 1){
+        setQuantity((quantity) => quantity - 1);
+      }
    }
-  }
+  };
   const handleAddCart = () => {
     router.push("/shop/cart");
   }
@@ -50,23 +54,23 @@ const CheckoutProductCard = ({product}) => {
 
           <div className="text-sm">
             <p className="text-base font-bold md:mr-4 pl-2">Variation:</p>
-            <button className="border border-black mx-1 py-1 px-3  md:mx-2 hover:scale-105">S</button>
-            <button className="border border-black  mx-1 py-1 px-3 hover:scale-105">M</button>
-            <button className="mx-1 py-2 px-3 lg:px-4 md:mx-2 bg-mainBg text-white hover:scale-105">L</button>
-            <button className="border border-black ml-1 py-1 px-2  md:mx-2 hover:scale-105">XL</button>
-            <button className="border border-black  ml-1 py-1 px-2 md:mx-2 hover:scale-105">XXL</button>
+            {
+              product.sizes.map((size, index) => (
+                <button className="border border-black  ml-1 py-1 px-2 md:mx-2 hover:scale-105 rounded-md" id={index}>{size}</button>
+              ))
+            }
           </div>
           <div className="flex items-center my-2">
             <p className="text-2xl font-bold lg:text-right pr-14 lg:pr-6 lg:flex">
-              <span className="hidden lg:block mr-2 font-semibold text-lg pt-1">Price: </span>{product.price}</p>
+              <span className="hidden lg:block mr-2 font-semibold text-lg pt-1">Price: </span>{product.price * quantity}</p>
           </div>
           <p className="lg:hidden">Few units in stock</p>
           <div className="flex items-center font-semibold">
             <button className="hidden md:block py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-layoutMainBg lg:text-black lg:bg-white font-medium mr-8 text-sm hover:scale-105" onClick={()=> handleDelItem(product._id)}>Delete</button>
             <div className="flex">
-              <button className="border border-black px-3 py-1 mx-2 hover:scale-105 bg-mainBg" onClick={() => handleQuantity(red)}>-</button>
-              <span className="mx-4 text-lg font-bold pt-1">1</span>
-              <button className="border border-black hover:scale-105 px-3 py-1 mx-2 bg-mainBg" onClick={() => handleQuantity(add)}>+</button>
+              <button className="border border-black px-3 py-1 mx-2 hover:scale-105 bg-mainBg rounded-sm" onClick={() => handleQuantity("sub", quantity)}>-</button>
+              <span className="mx-4 text-lg font-bold pt-1">{quantity}</span>
+              <button className="border border-black hover:scale-105 px-3 py-1 mx-2 bg-mainBg rounded-sm" onClick={() => handleQuantity("add", quantity)}>+</button>
             </div>
           </div>
         </div>

@@ -2,38 +2,68 @@ import axios from "axios";
 import ProductList from "@/components/FComponents/ProductList";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/router";
-import { current } from "@reduxjs/toolkit";
-import {fadeLoader} from 'react-spinners';
+import { FadeLoader } from 'react-spinners';
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
-const Index = ({products, currentPage, totalPages}) => {
+const Index = ({ products, currentPage, totalPages }) => {
+  const [searchValue, setSearchValue] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
+  
   const handlePagination = (newPage) => {
+    if (newPage < 1 || newPage > totalPages) return;
     router.push({
       pathname: '/',
-      query: { page: newPage}
-    })
-  }
+      query: { page: newPage, search: searchValue },
+    });
+  };
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  useEffect(() => {
+    if (searchValue === '') {
+      router.push("/");
+    }
+  }, [searchValue]);
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      handlePagination(1);
+    }, 500);
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchValue]);
 
   const backgroundImage = "url('/images/bannerDesktop.png')";
-    const bgImageStyle = {
-        backgroundImage: backgroundImage,
-        backgroundSize: 'cover',
-      } 
+  const bgImageStyle = {
+    backgroundImage: backgroundImage,
+    backgroundSize: 'cover',
+  };
+
+  if (loading) {
+    return <FadeLoader color={"#000"} loading={loading} />;
+  }
 
   return (
-    <div className="min-h-40" style={{ minHeight: "calc(100vh - 20vh)" }}>
-
-      <div className="bg-[#000000B2] h- py-2 px-3 lg:px-10 h-226px md:h-425px"
-        style={bgImageStyle}
-      >
-        <div className="flex gap-4 ">
-            <span className="w-3/4 "><input type="text" placeholder="Search Lapis" className="p-2 rounded-lg w-full text-lg"/></span>
-            <span className="w-1/4"><button className="text-black font-semibold text-lg bg-white rounded-lg py-2 px-4 md:px-6 inline-flex">Search</button></span>
+    <div className="min-h-40 flex flex-col flex-grow" style={{ minHeight: "calc(100vh - 20vh)" }}>
+      <div className="bg-[#000000B2] py-4 px-3 lg:px-10 h-226px md:h-425px" style={bgImageStyle}>
+        <div className="flex gap-4">
+          <span className="w-3/4 relative">
+            <input type="text" placeholder="Search Lapis" className="p-2 px-6 rounded-2xl w-full text-lg focus:bg-slate-50 opacity-90"
+              value={searchValue} onChange={(e) => handleChange(e)} />
+              <Image src='./images/search_black.svg' width='26' height='26' className="absolute right-2 top-2.5 opacity-70 p-1"/>
+          </span>
+          <span className="w-1/4">
+            <button className="text-black opacity-80 font-semibold text-lg bg-white rounded-lg py-2 px-4 md:px-6 inline-flex shadow-md hover:scale-105 active:bg-slate-400"
+              onClick={() => handlePagination(1)}>Search</button>
+          </span>
         </div>
         <div className="min-h-[50vh] my-2 text-white text-3xl flex md:py-10 font-semibold font-sans">
-            <div>
-              <p className="my-3">FIND YOUR </p> <p className="my-3">TRUE <span className="font-serif text-4xl font-medium">STYLE</span></p> HERE
-            </div>
+          <div>
+            <p className="my-3">FIND YOUR </p> <p className="my-3">TRUE <span className="font-serif text-4xl font-medium">STYLE</span></p> HERE
+          </div>
         </div>
       </div>
 
@@ -41,53 +71,57 @@ const Index = ({products, currentPage, totalPages}) => {
         <p className="text-white text-center font-extralight">Exclusive Mens Collection</p>
         <div className="border w-[60vw] lg:w-[40vw]"></div>
       </div>
-      
       <div className="px-3 lg:px-10 py-4">
         <div className="">
-          <ProductList products={products}/>
+          <ProductList products={products} />
         </div>
+
         <div className="border-b border-black my-2 mb-4 shadow"></div>
+
         <div className="flex justify-center text-black">
-          <button className="bg-mainBg py-2 px-4 rounded font-bold font-mono mr-1 hover:scale-105" onClick={() => handlePagination(currentPage - 1)} disabled={currentPage <= 1}>
-            <FaArrowLeft size={14}/>
+          <button aria-label="Previous page" className="bg-[#f4f4f4] py-2 px-3 rounded-full font-bold font-mono mr-1 rotate-180"
+            onClick={() => handlePagination(currentPage - 1)} disabled={currentPage <= 1}>
+            <svg data-v-608d409f="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-608d409f="" d="M2.66667 8H13.3333M13.3333 8L9.33334 4M13.3333 8L9.33334 12" stroke="#0D1821" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </button>
-          <button className="bg-mainBg py-2 px-4 rounded font-bold font-mono mr-1 hover:scale-105" onClick={() => handlePagination(currentPage)}>{currentPage}</button>
-          <button className="bg-mainBg hover:scale-105 py-2 px-4 rounded font-bold font-mono" onClick={() => handlePagination(currentPage + 1)} disabled={currentPage >= totalPages}>
-          <FaArrowRight size={14}/>
+          <button aria-label="Current page" className="bg-[#c7d3f1] py-2 px-4 rounded-full font-bold font-mono mr-1"
+            onClick={() => handlePagination(currentPage)}>
+              {currentPage}
+          </button>
+          <button aria-label="Next page" className="bg-[#f3f3f3] py-2 px-3 rounded-full"
+            onClick={() => handlePagination(currentPage + 1)} disabled={currentPage >= totalPages}>
+            <svg data-v-608d409f="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-608d409f="" d="M2.66667 8H13.3333M13.3333 8L9.33334 4M13.3333 8L9.33334 12" stroke="#0D1821" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </button>
         </div>
       </div>
-      <div>
-
-      </div>      
     </div>
   );
 };
 
-export default Index;
-
-
-export const getServerSideProps = async ({query}) => {
+export const getServerSideProps = async ({ query }) => {
   const page = query.page || 1;
+  const search = query.search || '';
   try {
-      const res = await axios.get(`${process.env.ENDPOINT_URL}?page=${page}&size=${8}`);
-      const data = await res.data.data;
-      const total = await res.data.total;
-      const totalPages = Math.ceil(total/8);
-      return {
-          props: {
-              products: data,
-              currentPage: parseInt(page, 10),
-              totalPages: totalPages,
-          },
-      };
+    const res = await axios.get(`${process.env.ENDPOINT_URL}?page=${page}&size=${12}&search=${search}`);
+    const data = await res.data.data;
+    const total = await res.data.total;
+    const totalPages = Math.ceil(total / 8);
+    return {
+      props: {
+        products: data,
+        currentPage: parseInt(page, 10),
+        totalPages: totalPages || 1,
+      },
+    };
   } catch (error) {
-      console.error("Error fetching data", error);
-      return {
-          props: {
-              products: [],
-              currentPage: parseInt(page, 10),
-          },
-      };
+    console.error("Error fetching data", error);
+    return {
+      props: {
+        products: [],
+        currentPage: parseInt(page, 10),
+        totalPages: 1,
+      },
+    };
   }
 };
+
+export default Index;
