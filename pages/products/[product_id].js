@@ -12,7 +12,7 @@ const Product = ({product}) => {
   }
   
   return (
-    <div className="p-4 min-h-[80vh]">
+    <div className="p-4 min-h-[30.5vh]">
       <div className="shadow-md border border-gray-200 rounded-lg overflow-hidden">
         <div className="relative w-full md:px-10 py-1">
           <div className="h-full bg-gray-50">
@@ -55,7 +55,7 @@ export default Product
 
 
 export const getServerSideProps = async({params}) => {
-  try { console.log(params);
+  try {
     const res = await axios.get(`${process.env.ENDPOINT_URL}/${params.product_id}`);
     const data = await res.data.data;
     return {
