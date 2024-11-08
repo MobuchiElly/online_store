@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className='bg-[#191919] text-center text-white text-opacity-80 text-base font-bold p-6 mt-6'>
+      <div className='bg-[#191919] text-center text-white text-opacity-80 text-base font-bold p-6 mt-4 md:mt-6'>
         Copyright 2023-2024 @Lapis Online Boutique. All Rights Reserved.
       </div>
     </div>
