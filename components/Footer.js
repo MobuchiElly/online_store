@@ -13,8 +13,8 @@ const Footer = () => {
     <div className='bg-[#0D1821] text-white'>
       {/* Top */}
       <div className="py-16 pl-8 pr-2 md:px-14">
-        <div className='md:flex md:flex-row md:px-1 lg:px-16 space-y-12 md:space-y-0 h-full'>
-          <div className='space-y-3 flex-1'>
+        <div className='flex flex-col-reverse md:flex-row md:px-1 lg:px-16 md:space-y-0 h-full'>
+          <div className='space-y-3 flex-1 mt-14 md:mt-0'>
             <div>
               <div className='uppercase font-bold text-base md:text-lg'>Contact us</div>
               <div className="h-[1px] w-16 mr-2 bg-mainBg"></div>
@@ -25,7 +25,7 @@ const Footer = () => {
               <Image src="/assets/images/payment-types-imgs.png" alt="logo" height={120} width={160} className="mt-4 md:w-44"/>
             </div>
           </div>
-          <div className='space-y-4 my-2 md:my-0 flex-1'>
+          <div className='space-y-4 flex-1'>
             <div className="space-y-1">
               <div className='uppercase font-bold text-lg md:text-xl'>Sign up for discounts & updates</div>
               <div className='pr-8 md:pr-0'>
