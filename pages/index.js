@@ -5,9 +5,6 @@ import { useRouter } from "next/router";
 import { FadeLoader } from 'react-spinners';
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { FadeLoader } from 'react-spinners';
-import { useEffect, useState } from "react";
-import Image from "next/image";
 
 
 const Index = ({ products, currentPage, totalPages }) => {
