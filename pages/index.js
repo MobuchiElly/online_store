@@ -5,6 +5,10 @@ import { useRouter } from "next/router";
 import { FadeLoader } from 'react-spinners';
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { FadeLoader } from 'react-spinners';
+import { useEffect, useState } from "react";
+import Image from "next/image";
+
 
 const Index = ({ products, currentPage, totalPages }) => {
   const [searchValue, setSearchValue] = useState("");
@@ -12,6 +16,7 @@ const Index = ({ products, currentPage, totalPages }) => {
   const router = useRouter();
   
   const handlePagination = (newPage) => {
+    if (newPage < 1 || newPage > totalPages) return;
     if (newPage < 1 || newPage > totalPages) return;
     router.push({
       pathname: '/',
@@ -76,7 +81,9 @@ const Index = ({ products, currentPage, totalPages }) => {
           <ProductList products={products} />
         </div>
 
+
         <div className="border-b border-black my-2 mb-4 shadow"></div>
+
 
         <div className="flex justify-center text-black">
           <button aria-label="Previous page" className="bg-[#f4f4f4] py-2 px-3 rounded-full font-bold font-mono mr-1 rotate-180"
@@ -112,6 +119,7 @@ export const getServerSideProps = async ({ query }) => {
         totalPages: totalPages || 1,
       },
     };
+
   } catch (error) {
     console.error("Error fetching data", error);
     return {
