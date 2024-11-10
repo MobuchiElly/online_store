@@ -31,7 +31,7 @@ const Product = ({product}) => {
             <div className="border border-black w-[30vw] lg:w-[16vw] my-1"></div>
         </div> */}
         
-        <div className='lg:flex-1 px-0 py-4 lg:p-2'>
+        <div className='lg:flex-1 p-4 lg:p-2'>
           <div className="lg:px-4 space-y-4">
             <p className="mb-2 text-3xl font-[600]">
               {product.title}
