@@ -76,7 +76,7 @@ const Cart = ({products}) => {
                 <p className="">
                   <p className="mr-3 lg:inline-flex">It appears you have no items added to cart presently</p>
                   <button className="bg-mainBg font-bold rounded-lg px-4 py-3 font-roboto mt-2 lg:mt-0 lg:inline-flex">
-                    <Link href="/shop">Go Back</Link>
+                    <Link href="/">Go Back</Link>
                   </button>
                 </p>
               </div>
