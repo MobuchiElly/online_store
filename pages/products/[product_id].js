@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
@@ -12,7 +13,7 @@ const Product = ({product}) => {
   }
   
   return (
-    <div className="px-3 py-10 lg:p-4 lg:flex justify-center">
+    <div className="px-3 py-10 lg:p-4 lg:flex justify-center min-h-[70vh]">
       <div className="shadow-md border border-gray-200 rounded-lg overflow-hidden lg:w-[80%] lg:flex lg:gap-4 md:px-10 py-1">
         <div className="w-full lg:flex-1">
           <div className="h-full bg-gray-50">
@@ -31,7 +32,7 @@ const Product = ({product}) => {
             <div className="border border-black w-[30vw] lg:w-[16vw] my-1"></div>
         </div> */}
         
-        <div className='lg:flex-1 p-4 lg:p-2'>
+        <div className='lg:flex-1 px-2 py-4 lg:p-2'>
           <div className="lg:px-4 space-y-4">
             <p className="mb-2 text-3xl font-[600]">
               {product.title}
@@ -75,8 +76,10 @@ const Product = ({product}) => {
               </button>
               <div className='space-x-6'>
                 <p className='my-1 text-lg'>Share our product to friends</p>
-                <span>
-                  <Image src="/assets/images/twitter-x-icon.svg" alt="icon" width={25} height={20} className="inline-flex"/>
+                <span className='cursor-pointer'>
+                  <Link href="#">
+                    <Image src="/assets/images/twitter-x-icon.svg" alt="icon" width={25} height={20} className="inline-flex"/>
+                  </Link>
                 </span>
                 <span>
                   <Image src="/assets/images/facebook-icon.svg" alt="icon" width={25} height={20} className="inline-flex"/>

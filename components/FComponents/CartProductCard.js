@@ -29,48 +29,48 @@ const CheckoutProductCard = ({product}) => {
   }
 
   return (
-    <div className="lg:px-2 py-2 flex">
+    <div className="lg:px-2 py-2 flex justify-center">
       {
         product && 
-        <div className="rounded-lg overflow-hidden flex w-full border md:w-[80%] lg:w-[90%]" id={product._id}>
-        <div className="flex flex-col lg:block relative w-2/5 h-64 pl-2 py-1 md:px-10 lg:px-20">
-          <div className="h-64 bg-slate-50">
+        <div className="rounded-lg overflow-hidden flex w-full border border-opacity-90 md:w-[80%] lg:w-[90%] space-x-1 md:space-x-10" id={product._id}>
+
+        <div className="flex flex-col items-center justify-center relative lg:w-1/4">
+          <div className="h-auto">
               {product && <Image
                 src={product?.images[0]?.url}
                 alt="product image"
-                layout="fill"
-                objectFit="contain"
-                className="rounded-t-lg p-1"
+                height={100}
+                width={200}
+                objectFit="cover"
+                className="object-cover lg:w-60 rounded-t-lg p-1"
               />}
           </div>
-          <div className="md:hidden flex pl-10">
-            <button className="py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-mainBg lg:text-black lg:bg-white font-semibold mr-8 text-sm hover:scale-105 z-10" onClick={() => handleDelItem(product._id)}>Delete</button>
+          <div className="md:hidden flex justify-center">
+            <button className="py-2 px-3 rounded-2xl border border-gray-700 text-mainBg font-semibold text-sm hover:scale-105 z-10" onClick={() => handleDelItem(product._id)}>Delete</button>
           </div>
         </div>
-
-        <div className="pt-10 md:pt-5 px-1 md:px-4 md:p-4 w-3/5 lg:flex lg:flex-col lg:justify-center space-y-2 lg:space-y-3">
-          <h3 className="text-sm font-extralight mb-2">Designed by Feramo</h3>
-          <p className="mb-2 font-bold">{product.title}</p>
-
+                {/* Product details section */}
+        <div className="flex flex-col justify-center space-y-2 lg:space-y-3">
+          <p className="font-bold">{product.title}</p>
           <div className="text-sm">
-            <p className="text-base font-bold md:mr-4 pl-2">Variation:</p>
+            <p className="text-base font-[600] mb-1">Sizes:</p>
             {
               product.sizes.map((size, index) => (
-                <button className="border border-black  ml-1 py-1 px-2 md:mx-2 hover:scale-105 rounded-md" id={index}>{size}</button>
+                <button className="border border-black border-opacity-40 font-semibold rounded-lg w-12 mr-1 py-1" id={index}>{size}</button>
               ))
             }
           </div>
-          <div className="flex items-center my-2">
-            <p className="text-2xl font-bold lg:text-right pr-14 lg:pr-6 lg:flex">
-              <span className="hidden lg:block mr-2 font-semibold text-lg pt-1">Price: </span>{product.price * quantity}</p>
+          <div className="flex items-center">
+            <p className="text-2xl lg:text-right font-[600]">
+              <span className="hidden lg:inline-flex mr-2 text-lg">Price: </span>{product.price * quantity}</p>
           </div>
           <p className="lg:hidden">Few units in stock</p>
           <div className="flex items-center font-semibold">
-            <button className="hidden md:block py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 text-layoutMainBg lg:text-black lg:bg-white font-medium mr-8 text-sm hover:scale-105" onClick={()=> handleDelItem(product._id)}>Delete</button>
+            <button className="hidden md:block py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 border-opacity-90 text-maainBg font-medium mr-6 text-sm" onClick={()=> handleDelItem(product._id)}>Delete</button>
             <div className="flex">
-              <button className="border border-black px-3 py-1 mx-2 hover:scale-105 bg-mainBg rounded-sm" onClick={() => handleQuantity("sub", quantity)}>-</button>
-              <span className="mx-4 text-lg font-bold pt-1">{quantity}</span>
-              <button className="border border-black hover:scale-105 px-3 py-1 mx-2 bg-mainBg rounded-sm" onClick={() => handleQuantity("add", quantity)}>+</button>
+              <button className="border border-black border-opacity-30 font-bold text-lg rounded-lg w-12 py-1" onClick={() => handleQuantity("sub", quantity)}>-</button>
+              <span className="text-xl font-bold pt-1 bg-slate-200 px-4">{quantity}</span>
+              <button className="border border-black border-opacity-30 font-bold rounded-lg text-lg w-12 py-1" onClick={() => handleQuantity("add", quantity)}>+</button>
             </div>
           </div>
         </div>
