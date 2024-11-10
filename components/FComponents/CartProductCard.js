@@ -46,7 +46,7 @@ const CheckoutProductCard = ({product}) => {
               />}
           </div>
           <div className="md:hidden flex justify-center">
-            <button className="py-2 px-3 rounded-2xl border border-gray-700 text-mainBg font-semibold text-sm hover:scale-105 z-10" onClick={() => handleDelItem(product._id)}>Delete</button>
+            <button className="py-2 px-3 rounded-2xl border border-gray-700 text-mainBg font-[600] text-sm hover:scale-105 z-10" onClick={() => handleDelItem(product._id)}>Delete</button>
           </div>
         </div>
                 {/* Product details section */}
@@ -66,7 +66,7 @@ const CheckoutProductCard = ({product}) => {
           </div>
           <p className="lg:hidden">Few units in stock</p>
           <div className="flex items-center font-semibold">
-            <button className="hidden md:block py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 border-opacity-90 text-maainBg font-medium mr-6 text-sm" onClick={()=> handleDelItem(product._id)}>Delete</button>
+            <button className="hidden md:block py-2 px-3 rounded-2xl border border-gray-700 lg:border-gray-500 border-opacity-90 text-maainBg font-[700] mr-6 text-sm text-mainBg" onClick={()=> handleDelItem(product._id)}>Delete</button>
             <div className="flex">
               <button className="border border-black border-opacity-30 font-bold text-lg rounded-lg w-12 py-1" onClick={() => handleQuantity("sub", quantity)}>-</button>
               <span className="text-xl font-bold pt-1 bg-slate-200 px-4">{quantity}</span>
