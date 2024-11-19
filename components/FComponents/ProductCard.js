@@ -15,8 +15,7 @@ const ProductCard = ({product}) => {
   const handleAddCart = (e) => {
     e.preventDefault();
     dispatch(addItem({...product, quantity}));
-    console.log('successfully added item to cart');
-    router.push("/shop/cart");
+    //router.push("/shop/cart");
   }
 
   return (

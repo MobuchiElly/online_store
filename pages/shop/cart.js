@@ -3,13 +3,16 @@ import CartProductCard from '@/components/FComponents/CartProductCard';
 import ProductCard from '@/components/FComponents/ProductCard';
 import Image from 'next/image';
 import {useState, useEffect} from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { UseDispatch } from 'react-redux';
+import { clearCart } from '@/utils/redux/features/cartSlice';
 
 const Cart = ({products}) => {
   const cart = useSelector(state => state.lapiscart);
   const [itemsTotal, setitemsTotal] = useState(cart.quantity);
   const [suggestedProducts, setsuggestedProducts] = useState([]);
+  const dispatch = useDispatch();
 
   const updateQuantity = () => {
 
@@ -49,7 +52,9 @@ const Cart = ({products}) => {
                     <span className='pt-1'>
                       <Image src="/assets/images/delete-icon-white.png" alt="delete-icon" height={20} width={16} className=""/>
                     </span>
-                    <button className='font-[600] inline-flex' onClick={() => {window.alert("This would clear the cart storage")}}>Clear cart</button>
+                    <button className='font-[600] inline-flex' onClick={() => {
+                      dispatch(clearCart())
+                      }}>Clear cart</button>
                   </div>
                 </div>
                 <div className="border-b border-slate-400 lg:flex pb-2">

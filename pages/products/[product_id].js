@@ -3,13 +3,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import {useDispatch} from "react-redux";
+import { addItem } from '@/utils/redux/features/cartSlice';
 
 const Product = ({product}) => {
   const [price, setPrice] = useState(null);
-  const router = useRouter();
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
   
   const handleAddCart = () => {
-    router.push("/shop/cart");  
+    dispatch(addItem({...product, quantity}));
   }
   
   return (

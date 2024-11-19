@@ -51,8 +51,8 @@ const Navbar = () => {
           </button>
         </div>
             {/*mobile nav drop down */}
-        <ul className={`w-full border-t-2 flex lg:hidden flex-col justify-center items-center bg-layoutMainBg font-sans rounded-bl-3xl rounded-tr-3xl border-l-4 border-r-4 px-4 ${toggleNav ? 'fixed md:hidden top-14vh left-0 z-50  border-r  ease-in-out duration-500' : 'ease-in-out bottom-0 fixed left-[-100%]'}`} style={{ zIndex: 100 }}>
-            <li className="border-b w-full py-5 flex items-center justify-center">
+        <ul className={`w-full border-t-2 border-opacity-50 bg-opacity-95 flex lg:hidden flex-col justify-center items-center bg-layoutMainBg font-sans rounded-bl-3xl rounded-tr-3xl border-l-4 border-r-4 px-4 ${toggleNav ? 'fixed md:hidden top-14vh left-0 z-50  border-r  ease-in-out duration-500' : 'ease-in-out bottom-0 fixed left-[-100%]'}`} style={{ zIndex: 100 }}>
+            <li className="border-b border-opacity-50 w-full py-5 flex items-center justify-center">
               <Link href="/" className="" onClick={handleToggleNav}>Shop</Link>
             </li>
             <li className="border-b w-full py-5 flex items-center justify-center">
