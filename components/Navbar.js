@@ -4,11 +4,53 @@ import { useState, useEffect } from "react";
 import styles from "../styles/Navbar.module.css";
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { useSelector } from "react-redux";
+import axios from "axios";
+import {getAuth, onAuthStateChanged, signOut} from "firebase/auth";
+import app from "@/utils/auth-config/firebase-config";
+import Auth from "./modals/AuthModal";
+
 
 const Navbar = () => {
+  const [name, setName] = useState('');
   const [acctDropDwnOpen, setAcctDropDwnOpen] = useState(false);
+  const [openAuthModal, setopenAuthModal] = useState(false);
   const [toggleNav, setToggleNav] = useState(false);
   const quantity = useSelector(state => state.lapiscart.quantity ? state.lapiscart.quantity : 0);
+  
+  const auth = getAuth(app);
+  onAuthStateChanged(auth, async (user) => {
+    if(user){
+      const authId = user.uid;
+      try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/users/${authId}`);
+        const userData = res.data;
+        if(res.status === 200){
+          const {name:userName} = userData;
+          setName(userName);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  });
+  
+  const handleAuth = () => {
+    //Check if the user is logged in
+    if(!auth.currentUser){
+      setopenAuthModal(true);
+      return;
+    }
+    setAcctDropDwnOpen(!acctDropDwnOpen);
+  }
+
+  const acctSignOut = async () => {
+    try {
+      await signOut(auth);
+      setAcctDropDwnOpen(false);
+    } catch (error) {
+      console.error("Error occurred:", error);
+    }
+  }
 
   const handleToggleNav = () => {
     setToggleNav(!toggleNav);
@@ -40,7 +82,7 @@ const Navbar = () => {
           </Link>
       
           <div className="hidden lg:block h-9 w-1 ml-5 mr-1 font-extralight border-l-2 border-white"></div>
-          <div className="ml-4 md:ml-2 " onClick={() => setAcctDropDwnOpen(!acctDropDwnOpen)}>
+          <div className="ml-4 md:ml-2 " onClick={handleAuth}>
             <Image src="/images/person.png" width="20" height="20" className="w-5 lg:w-6 inline-flex mb-1 hover:scale-105"/>
           </div>
           <div className="h-8 font-bold border-l-2 border-white ml-2 mr-2 block lg:hidden"></div>
@@ -51,34 +93,35 @@ const Navbar = () => {
           </button>
         </div>
             {/*mobile nav drop down */}
-        <ul className={`w-full border-t-2 border-opacity-50 bg-opacity-95 flex lg:hidden flex-col justify-center items-center bg-layoutMainBg font-sans rounded-bl-3xl rounded-tr-3xl border-l-4 border-r-4 px-4 ${toggleNav ? 'fixed md:hidden top-14vh left-0 z-50  border-r  ease-in-out duration-500' : 'ease-in-out bottom-0 fixed left-[-100%]'}`} style={{ zIndex: 100 }}>
+        <ul className={`w-full border-[#c05f3c] border-t-2 border-opacity-50 bg-[#c05f3c] flex lg:hidden flex-col justify-center items-center rounded-bl-3xl rounded-tr-3xl border-l-4 border-r-4 px-4 py-4 font-[650] text-black ${toggleNav ? 'fixed md:hidden top-14vh left-0 z-50  border-r  ease-in-out duration-500' : 'ease-in-out bottom-0 fixed left-[-100%]'}`} style={{ zIndex: 100 }}>
             <li className="border-b border-opacity-50 w-full py-5 flex items-center justify-center">
               <Link href="/" className="" onClick={handleToggleNav}>Shop</Link>
             </li>
-            <li className="border-b w-full py-5 flex items-center justify-center">
+            <li className="w-full py-5 flex items-center justify-center">
               <Link href="/shop/cart" className="" onClick={handleToggleNav}>Cart</Link>
             </li>
           </ul>
       
         <div
-          className={`${styles["dropdown-container"]} ${
+          className={`space-y-[1px] lg:py-[1px] ${styles["dropdown-container"]} ${
             acctDropDwnOpen ? styles["dropdown-visible"] : styles["dropdown-hidden"]
           }`}
         >
-          <div className={`border-2 border-blue-600 ${styles["dropdown-content-1"]} px-4 py-2`}>
-            <Image src="/images/userimage.png" width="50" height="20" className="inline-flex mr-2" />
-            <span className="ml-1">John More</span>
+          <div className={`space-x-3 ${styles["dropdown-content-1"]} px-4 py-2`}>
+            <Image src="/images/userimage.png" width="50" height="20" className="inline-flex" />
+            <span className="text-[16px]">{name}</span>
           </div>
           <div
-            className={`${styles["dropdown-content-2"]} px-6 py-5 ${
+            className={`space-x-6 ${styles["dropdown-content-2"]} px-6 py-5 hover:bg-mainBg ${
               acctDropDwnOpen ? styles["content-visible"] : styles["content-hidden"]
             }`}
           >
-            <Image src="/images/logout.png" width="22" height="20" className="inline-flex mr-2" />
-            <span className="ml-2">Logout</span>
+            <Image src="/images/logout.png" width="22" height="20" className="inline-flex"/>
+            <span onClick={acctSignOut} className="cursor-pointer text-[16px]">Logout</span>
           </div>
         </div>
       </div>
+      {openAuthModal && <Auth closeModal={() => setopenAuthModal(false)}/>}
     </div>
   );
 };

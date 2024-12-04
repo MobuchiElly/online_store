@@ -1,12 +1,33 @@
 import { useState } from "react"
 import Image from "next/image"
+import EmailSuccessModal from "./modals/EmailSuccessModal";
+import EmailErrorModal from "./modals/EmailErrorModal";
+import axios from "axios";
 
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [successModal, setSuccessModal] = useState(false);
+  const [errorModalOpen, seterrorModalOpen] = useState(false);
+  const [error, setError] = useState('');
+  
 
-  const handleSubscription = () => {
-    
+  const handleSubscription = async (email) => {
+    try {
+      const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!regex.test(email)){
+        setError("Please enter a valid email address");
+        return;
+      };
+      const emailRes = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/email/subscribeemail`, {email});
+      if (emailRes.status === 201){
+        setSuccessModal(true);
+        return;
+      }
+      seterrorModalOpen(true);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -29,16 +50,18 @@ const Footer = () => {
             <div className="space-y-1">
               <div className='uppercase font-bold text-lg md:text-xl'>Sign up for discounts & updates</div>
               <div className='pr-8 md:pr-0'>
-                <input type="text" placeholder="Enter your email address or phone number" className='rounded-md shadow-md outline-none border-0 w-full bg-white bg-opacity-20 px-4 py-3'/>
+                <input type="text" placeholder="Enter your email address or phone number" className='rounded-md shadow-md outline-none border-0 w-full bg-white bg-opacity-20 px-4 py-3' value={email} onChange={(e) => setEmail(e.target.value)}/>
               </div>
             </div>
-            <button className='bg-layoutMainBg hover:bg-mainBg font-semibold md:font-bold md:text-xl transition duration-300 ease-in-out px-12 py-2 rounded outline-none shadow-md'>Subscribe</button>
+            <button className='bg-layoutMainBg hover:bg-mainBg font-semibold md:font-bold md:text-xl transition duration-300 ease-in-out px-12 py-2 rounded outline-none shadow-md' onClick={() => handleSubscription(email)}>Subscribe</button>
           </div>
         </div>
       </div>
       <div className='bg-[#191919] text-center text-white text-opacity-80 text-base font-bold p-6 mt-4 md:mt-6'>
         Copyright 2023-2024 @Lapis Online Boutique. All Rights Reserved.
       </div>
+      {successModal && <EmailSuccessModal closeModal={() => setSuccessModal(false)}/>}
+      {errorModalOpen &&<EmailErrorModal closeModal={() => seterrorModalOpen(false)}/>}
     </div>
   )
 }

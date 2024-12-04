@@ -9,7 +9,7 @@ const SuccessModal = ({closeModal}) => {
   const router = useRouter();
 
   const handleClose = () => {
-    router.push("/shop");
+    router.push("/");
   }
 
   return (
