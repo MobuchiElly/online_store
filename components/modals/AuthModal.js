@@ -41,21 +41,17 @@ const Auth = ({closeModal}) => {
             if (!name || email || password) {
                 setError("Please fill all fields");
             }
-            // const userCred = await createUserWithEmailAndPassword(
-            //     auth,
-            //     email,
-            //     password
-            // );
-            const iid = auth.currentUser.uid;
-            // const id = userCred.user.uid; 
-            console.log(email, name, iid);
-            if (1) {
-                const res = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/auth/register`, { name, email, authId: iid });
+            const userCred = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+            const authId = userCred.user.uid; 
+            if (userCred && id) {
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/auth/register`, { name, email, authId });
                 res.status === 201 ? closeModal : "";
             }
         } catch(error) {
-            // setError(error.message.split(" ")[2].replace(/[^a-zA-Z]/gi, " ").trim() || "Please provide valid details");
-            // console.error(error.message.split(" ")[2].replace(/[^a-zA-Z]/gi, " ").trim());
             console.error(error);
             //auth missing password
         }
@@ -63,7 +59,7 @@ const Auth = ({closeModal}) => {
 
 
     return (
-    <div className='fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center'>
+    <div className='fixed inset-0 z-50 bg-black bg-opacity-60 flex justify-center items-center'>
         <div className='bg-white relative space-y-4 py-12 px-6 rounded-lg min-w-80'>
             <span className="absolute right-4 top-4" onClick={closeModal}>
                 <Image src="/assets/images/close-icon.svg" height={25} width={25}/>
