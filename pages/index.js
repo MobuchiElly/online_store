@@ -5,11 +5,13 @@ import { useRouter } from "next/router";
 import { FadeLoader } from 'react-spinners';
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Preloader from "@/components/Preloader";
 
 
 const Index = ({ products, currentPage, totalPages }) => {
   const [searchValue, setSearchValue] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [preloader, setPreloader] = useState(true);
+
   const router = useRouter();
   
   const handlePagination = (newPage) => {
@@ -38,15 +40,19 @@ const Index = ({ products, currentPage, totalPages }) => {
     return () => clearTimeout(delayDebounceFn);
   }, [searchValue]);
 
+  useEffect(() => {
+    const preloaderTimeout = setTimeout(() => {
+      setPreloader(false);
+    }, 3000);
+
+    return () => clearTimeout(preloaderTimeout)
+  }, []);
+
   const backgroundImage = "url('/images/bannerDesktop.png')";
   const bgImageStyle = {
     backgroundImage: backgroundImage,
     backgroundSize: 'cover',
   };
-
-  if (loading) {
-    return <FadeLoader color={"#000"} loading={loading} />;
-  }
 
   return (
     <div className="min-h-40 flex flex-col flex-grow" style={{ minHeight: "calc(100vh - 20vh)" }}>
@@ -97,6 +103,7 @@ const Index = ({ products, currentPage, totalPages }) => {
           </button>
         </div>
       </div>
+      {preloader && <Preloader />}
     </div>
   );
 };

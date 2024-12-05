@@ -5,10 +5,12 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import {useDispatch} from "react-redux";
 import { addItem } from '@/utils/redux/features/cartSlice';
+import Preloader from '@/components/Preloader';
 
 const Product = ({product}) => {
   const [price, setPrice] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [preloader, setPreloader] = useState(true);
   const dispatch = useDispatch();
 
   
@@ -16,6 +18,14 @@ const Product = ({product}) => {
     dispatch(addItem({...product, quantity}));
   }
   
+  useEffect(() => {
+    const preloaderTimeout = setTimeout(() => {
+      setPreloader(false);
+    }, 2000);
+
+    return () => clearTimeout(preloaderTimeout)
+  }, []);
+
   return (
     <div className="px-3 py-10 lg:p-4 lg:flex justify-center min-h-[70vh]">
       <div className="shadow-md border border-gray-200 rounded-lg overflow-hidden lg:w-[80%] lg:flex lg:gap-4 md:px-10 py-1">
@@ -96,6 +106,7 @@ const Product = ({product}) => {
           </div>
         </div>
       </div>
+      {preloader && <Preloader />}
     </div>
   )
 }

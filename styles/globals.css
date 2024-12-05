@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --red : 226;
+  --green : 96;
+  --blue : 127;
+}
 
 *{
   padding: 0;
