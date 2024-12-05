@@ -37,7 +37,7 @@ const ProductCard = ({product}) => {
         </div>
         
         <div className="px-4">
-          <p className="mb-2 font-semibold">{product.title}</p>
+          <p className="text-[14px] text-gray-600 md:text-base md:mb-2 font-semibold">{product.title}</p>
           <div className="hidden justify-between items-center text-sm">
             <span className="text-lg font-bold mr-4">Variations: </span>
             <button className="border border-black w-12 mx-1 py-1">S</button>
@@ -45,12 +45,12 @@ const ProductCard = ({product}) => {
             <button className="border border-black w-12 mx-1 py-1">L</button>
             <button className="border border-black w-12 px-1 py-1 ml-1">XXL</button>
           </div>
-          <div className="flex flex-col my-2 space-y-4 action-spot">
+          <div className="flex flex-col md:my-2 space-y-2 md:space-y-4 action-spot">
             <span className="text-lg font-bold">&#8358;{product.price}</span>
-            <button className="text-[#ff7f55] border border-mainBg hover:text-white hover:bg-mainBg py-3 px-3 rounded-lg font-bold text-lg" onClick={(e) => handleAddCart(e)}>Add to Cart</button>
+            <button className="text-[#ff7f55] border border-mainBg hover:text-white hover:bg-mainBg py-2 md:py-3 px-3 rounded-lg font-bold text-[14px]" onClick={(e) => handleAddCart(e)}>Add to Cart</button>
           </div>
         </div>
-        <p className="px-4 text-center py-2 text-sm">30 days money back guarantee</p>
+        <p className="px-4 text-center py-2 text-[10px]">30 days money back guarantee</p>
       </Link>
     </div>
   );
