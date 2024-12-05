@@ -19,7 +19,7 @@ const ProductCard = ({product}) => {
   }
 
   return (
-    <div className="p-2 w-full">
+    <div className="py-2 w-full">
       <Link href={"/products/" + productId} className="shadow-lg border border-gray-200 rounded-xl flex flex-col flex-1">
         <div className="relative w-full bg-slate-100 bg-opacity-5">
           <div className="h-auto">
@@ -46,7 +46,7 @@ const ProductCard = ({product}) => {
             <button className="border border-black w-12 px-1 py-1 ml-1">XXL</button>
           </div>
           <div className="flex flex-col md:my-2 space-y-2 md:space-y-4 action-spot">
-            <span className="text-lg font-bold">&#8358;{product.price}</span>
+            <span className="text-lg font-bold lg:mt-4">&#8358;{product.price}</span>
             <button className="text-[#ff7f55] border border-mainBg hover:text-white hover:bg-mainBg py-2 md:py-3 px-3 rounded-lg font-bold text-[14px]" onClick={(e) => handleAddCart(e)}>Add to Cart</button>
           </div>
         </div>
