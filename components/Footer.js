@@ -11,22 +11,22 @@ const Footer = () => {
   const [errorModalOpen, seterrorModalOpen] = useState(false);
   const [error, setError] = useState('');
   
-
+  
   const handleSubscription = async (email) => {
     try {
-      const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
       if (!regex.test(email)){
         setError("Please enter a valid email address");
         return;
       };
-      const emailRes = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/email/subscribeemail`, {email});
-      if (emailRes.status === 201){
+      const emailRes = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/email/subscribeemail`, {email}); 
+      if (emailRes.status === 201) {
         setSuccessModal(true);
-        return;
       }
-      seterrorModalOpen(true);
     } catch (error) {
-      console.error(error);
+      if(error?.response?.status == 409){
+        seterrorModalOpen(true);
+      }
     }
   }
 
@@ -50,10 +50,20 @@ const Footer = () => {
             <div className="space-y-1">
               <div className='uppercase font-bold text-lg md:text-xl'>Sign up for discounts & updates</div>
               <div className='pr-8 md:pr-0'>
-                <input type="text" placeholder="Enter your email address or phone number" className='rounded-md shadow-md outline-none border-0 w-full bg-white bg-opacity-20 px-4 py-3' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="text" placeholder="Enter your email address or phone number" className='rounded-md shadow-md outline-none border-0 w-full bg-white bg-opacity-20 px-4 py-3' value={email} onChange={
+                  (e) => {
+                    setEmail(e.target.value);
+                    setError('')
+                  }
+                }/>
               </div>
             </div>
-            <button className='bg-layoutMainBg hover:bg-mainBg font-semibold md:font-bold md:text-xl transition duration-300 ease-in-out px-12 py-2 rounded outline-none shadow-md' onClick={() => handleSubscription(email)}>Subscribe</button>
+            <div className="space-x-6">
+              <button className='bg-layoutMainBg hover:bg-mainBg font-semibold md:font-bold md:text-xl transition duration-300 ease-in-out px-12 py-2 rounded outline-none shadow-md' onClick={() => handleSubscription(email)}>
+                Subscribe
+              </button>
+              <p className="inline-flex text-red-300">{error && `Error ${error}`}</p>
+            </div>
           </div>
         </div>
       </div>

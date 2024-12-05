@@ -62,7 +62,7 @@ const Auth = ({closeModal}) => {
     <div className='fixed inset-0 z-50 bg-black bg-opacity-60 flex justify-center items-center'>
         <div className='bg-white relative space-y-4 py-12 px-6 rounded-lg min-w-80'>
             <span className="absolute right-4 top-4" onClick={closeModal}>
-                <Image src="/assets/images/close-icon.svg" height={25} width={25}/>
+                <Image src="/assets/images/close-icon.svg" alt="close svg" height={25} width={25}/>
             </span>
             <h1 className="text-mainBg font-[650] text-lg border-b border-b-mainBg text-center">{toggleReg ? "LOGIN" : "REGISTER"}</h1>
             {!toggleReg ? <div>
