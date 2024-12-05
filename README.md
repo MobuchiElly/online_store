@@ -1,9 +1,5 @@
-Online shopping applicarion
+Online shopping application
 
-Static web application built with Nextjs, React, javascript, Tailwind css and React icons. 
+This is an online shopping mall built with MongoDb, Express, Node js and React(NextJS Framework)
 
-This project aims to achieve the designers figma design bringing to life the user interface and proper routing across pages. The functionalities in the application are to be implemented over time. 
-Presently this online application aims to meet all requirements stipulated in the guide.
-
-
-BuchiDev
+The complete product display, authentication and shopping experience.
