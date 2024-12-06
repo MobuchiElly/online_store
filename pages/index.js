@@ -79,7 +79,7 @@ const Index = ({ products, currentPage, totalPages }) => {
           <p className="text-white text-center font-extralight">Exclusive Mens Collection</p>
           <div className="border w-[60vw] lg:w-[40vw]"></div>
         </div>
-        <div className="px-3 lg:px-10 py-4">
+        {products?.length > 0 ? <div className="px-3 lg:px-10 py-4">
           <div className="flex justify-center">
             <ProductList products={products} />
           </div>
@@ -98,7 +98,12 @@ const Index = ({ products, currentPage, totalPages }) => {
               <svg data-v-608d409f="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-608d409f="" d="M2.66667 8H13.3333M13.3333 8L9.33334 4M13.3333 8L9.33334 12" stroke="#0D1821" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </button>
           </div>
+        </div> :
+        <div className="min-h-[60vh] py-16 space-y-2">
+          <p className="text-center text-lg font-[500]">Oops!!</p>
+          <p className="text-center text-lg font-[500] ">The search returned no products. Please refresh your browser</p>
         </div>
+        }
       </div>
       {preloader && <Preloader />}
   </div>
