@@ -4,11 +4,11 @@ import ReactLoading from "react-loading";
 const LoadingModal = ({ closeModal }) => {
   return (
     <div className="bg-slate-50 fixed inset-0 py-10 px-8 text-lg z-50 font-sans">
-      <div className="flex p-1">
-        <span className="my-1 w-1/12" onClick={closeModal}>
+      <div className="flex p-1 relative">
+        <span className="absolute left-6 top-3 text-gray-400">
           <FaArrowLeft size={16} />
         </span>
-        <span className="w-11/12 lg:mr-16 text-center pr-10 text-xl font-bold">Payment</span>
+        <h1 className="w-full lg:pl-10 text-center lg:text-justify pr-10 text-xl lg:text-lg font-[600] lg:font-[500]">Payment</h1>
       </div>
       <div className="h-full text-center flex flex-col justify-center">
         <div className="h-[75%] lg:h-[60%]">

@@ -1,7 +1,9 @@
 import Image from"next/image";
 import {useState} from "react";
+import {useSelector, useDispatch} from "react-redux";
 import LoadingModal from '@/components/modals/LoadingModal';
 import SuccessModal from '@/components/modals/SuccessModal';
+import { clearCart } from "@/utils/redux/features/cartSlice";
 
 const Checkout = () => {
   const [loading, setLoading] = useState(false);
@@ -14,6 +16,9 @@ const Checkout = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
+
+  const cart = useSelector(state => state.lapiscart);
+  const dispatch = useDispatch();
 
   const checkInput = () => {
     if (!stateOfResidence) {
@@ -53,8 +58,9 @@ const Checkout = () => {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
+        dispatch(clearCart());
         setSuccess(true);
-      }, 500);
+      }, 900);
     }
   };
 
@@ -209,14 +215,14 @@ const Checkout = () => {
             <div className="w-full bg-white shadow-sm h-auto pt-3 lg:py-4 px-6 lg:px-12 rounded">
               <p className="py-3 text-slate-900 font-semibold text-lg border-b border-gray-300">Order summary</p>
               <p className="border-b border-gray-300 py-3 space-x-10">
-                <span>Selected Items(3)</span><span>$50</span>
+                <span>Selected Items({cart.quantity})</span><span>&#8358;{cart.total}</span>
               </p>
               <p className="py-3 font-bold text-slate-900 text-base border-b border-gray-300 space-x-10">
                 <span>Sum Total</span>
-                <span className="font-semibold">5099</span>
+                <span className="font-semibold">&#8358;{cart.total}</span>
               </p>
               <div className=" pt-6 pb-1">
-                <button className="w-full bg-mainBg hover:bg-layoutMainBg hover:scale-105 py-3 px-6 rounded-xl text-black font-semibold text-sans" onClick={handleCheckout}>
+                <button className="w-full bg-mainBg hover:bg-layoutMainBg hover:scale-105 py-3 px-6 rounded-xl text-black font-[600] text-sans" onClick={handleCheckout}>
                   Complete checkout
                 </button>
               </div>

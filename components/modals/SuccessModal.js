@@ -4,8 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 const SuccessModal = ({closeModal}) => {
-  const [error, setError] = useState("");
-  
   const router = useRouter();
 
   const handleClose = () => {
@@ -13,28 +11,22 @@ const SuccessModal = ({closeModal}) => {
   }
 
   return (
-    <div className="bg-white fixed inset-0 py-10 px-8 text-lg z-50 font-sans">
-      <div className="flex p-1">
-        <span className="my-1 w-1/12" onClick={handleClose}>
-          <FaArrowLeft size={16}/>
-        </span>
-        <span className="w-11/12 text-center pr-10 text-xl font-bold">Payment</span>
-      </div>
-
-      <div className="h-full text-center flex items-center justify-center">
-        <div className="w-full h-[60%] py-4">
-          <div className="flex justify-center">
-            <Image src="/images/successIcon.png" alt="" width="80" height="200"/>
+    <div className="fixed inset-0 z-50 flex justify-center bg-white py-6 px-3 lg:py-12">
+      <div className="w-full md:w-[70%] bg-white text-lg z-50 font-sans space-y-16 lg:space-y-20">
+        <div className="relative">
+          <div className="absolute top-3 hover:scale-105" onClick={handleClose}>
+            <FaArrowLeft size={16}/>
           </div>
-          <div className="flex justify-center items-center mt-8 font-semibold">
-            Paid successfully
-          </div>
-          <div className="bg-layoutMainBg rounded-3xl mx-10 mt-20 p-2 text-black" onClick={() => setError("This feature would be available shortly after I have built the backend")}>
-            Download Receipt
-          </div>
-          {
-            error && <p className="text-red-600 font-medium font-serif py-2">{error}</p>
-          }
+          <h1 className="w-full text-center lg:text-justify text-xl lg:text-lg pr-4 lg:pr-0 lg:pl-6 pb-3 pt-1 font-[600] lg:font-[500]">Payment</h1>
+        </div>
+        <div className="flex justify-center">
+          <Image src="/images/successIcon.png" alt="" width="80" height="200"/>
+        </div>
+        <div className="flex justify-center items-center font-[400]">
+          Paid successfully
+        </div>
+        <div className="flex justify-center items-center">
+          <button className="text-center font-[600] w-full lg:w-auto bg-layoutMainBg hover:bg-opacity-90 rounded-3xl p-2 lg:px-20">Download Receipt</button>
         </div>
       </div>
     </div>

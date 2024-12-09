@@ -20,10 +20,7 @@ const Cart = ({products}) => {
   
   useEffect(() => {
     const cartedProductsIds = cart.items.map(product => product._id);
-    console.log("carted:", cartedProductsIds); console.log("products:", products);
     const suggested = products?.filter(product => !cartedProductsIds.includes(product._id));
-    console.log("suggested products:", suggested);
-    setsuggestedProducts(suggested);
   }, [cart.items, products]);
   
 
