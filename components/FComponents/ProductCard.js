@@ -39,10 +39,11 @@ const ProductCard = ({product}) => {
         <div className="px-2 text-gray-700 space-y-1">
           <p className="text-[12px] my-1">{product.title}</p>
           <div className="hidden lg:block space-x-1 text-[10px]">
-            <button className="border border-black border-opacity-30 w-8 py-1 rounded font-[500] text-gray-600">S</button>
-            <button className="border border-black border-opacity-30 w-8 py-1 rounded font-[500] text-gray-600">M</button>
-            <button className="border border-black border-opacity-30 w-8 py-1 rounded font-[500] text-gray-600">L</button>
-            <button className="border border-black border-opacity-30 w-8 py-1 rounded font-[500] text-gray-600 ml-1">XL</button>
+            {
+              product.sizes.map((size, index) => (
+                <button className="border border-black border-opacity-30 w-8 py-1 rounded font-[600] text-black" id={index}>{size}</button>
+              ))
+            }
           </div>
           <div className="space-y-4">
             <p className="text-black font-[500] text-[16px] lg:mt-2">&#8358;{product.price}</p>

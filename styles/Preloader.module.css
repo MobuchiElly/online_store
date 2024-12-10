@@ -27,7 +27,7 @@
 .loader .dot {
     -webkit-animation: dot 2s infinite;
     animation: dot 2s infinite;
-    background: #0D1821;
+    background: rgba(var(--red),var(--green),var(--blue),1);
     border-radius: 50%;
     height: 16px;
     left: 15px;
@@ -60,7 +60,7 @@
 }
 
 .loader .dots span {
-    background: #0D1821;
+    background: rgba(var(--red),var(--green),var(--blue),1);
     border-radius: 50%;
     display: block;
     float: left;
