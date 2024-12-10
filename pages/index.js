@@ -114,10 +114,10 @@ export const getServerSideProps = async ({ query }) => {
   const page = query.page || 1;
   const search = query.search || '';
   try {
-    const res = await axios.get(`${process.env.ENDPOINT_URL}?page=${page}&size=${12}&search=${search}`);
+    const res = await axios.get(`${process.env.ENDPOINT_URL}?page=${page}&size=${10}&search=${search}`);
     const data = await res.data.data;
     const total = await res.data.total;
-    const totalPages = Math.ceil(total / 12);
+    const totalPages = Math.ceil(total / 10);
     return {
       props: {
         products: data,

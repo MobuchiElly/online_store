@@ -32,25 +32,24 @@ const ProductCard = ({product}) => {
               />
           </div>
         </div>
-        <div className="hidden md:flex justify-center my-2">
+        <div className="hidden md:flex justify-center mt-2">
             <div className="border border-black w-[30vw] lg:w-[16vw] my-1"></div>
         </div>
         
-        <div className="px-4">
-          <p className="text-[14px] text-gray-600 md:text-base md:mb-2 font-semibold">{product.title}</p>
-          <div className="hidden justify-between items-center text-sm">
-            <span className="text-lg font-bold mr-4">Variations: </span>
-            <button className="border border-black w-12 mx-1 py-1">S</button>
-            <button className="border border-black w-12 mx-1 py-1">M</button>
-            <button className="border border-black w-12 mx-1 py-1">L</button>
-            <button className="border border-black w-12 px-1 py-1 ml-1">XXL</button>
+        <div className="px-2 text-gray-700 space-y-1">
+          <p className="text-[12px] my-1">{product.title}</p>
+          <div className="hidden lg:block space-x-1 text-[10px]">
+            <button className="border border-black border-opacity-30 w-8 py-1 rounded font-[500] text-gray-600">S</button>
+            <button className="border border-black border-opacity-30 w-8 py-1 rounded font-[500] text-gray-600">M</button>
+            <button className="border border-black border-opacity-30 w-8 py-1 rounded font-[500] text-gray-600">L</button>
+            <button className="border border-black border-opacity-30 w-8 py-1 rounded font-[500] text-gray-600 ml-1">XL</button>
           </div>
-          <div className="flex flex-col md:my-2 space-y-2 md:space-y-4 action-spot">
-            <span className="text-lg font-bold lg:mt-4">&#8358;{product.price}</span>
-            <button className="text-[#ff7f55] border border-mainBg hover:text-white hover:bg-mainBg py-2 md:py-3 px-3 rounded-lg font-bold text-[14px]" onClick={(e) => handleAddCart(e)}>Add to Cart</button>
+          <div className="space-y-4">
+            <p className="text-black font-[500] text-[16px] lg:mt-2">&#8358;{product.price}</p>
+            <button className="text-[#ff7f55] border border-mainBg hover:text-white hover:bg-mainBg py-3 px-3 rounded-lg font-bold text-[13px] w-full mt-4 mb-1" onClick={(e) => handleAddCart(e)}>Add to Cart</button>
           </div>
         </div>
-        <p className="px-4 text-center py-2 text-[10px]">30 days money back guarantee</p>
+        <p className="text-gray-700 px-4 text-center py-2 text-[10px]">30 days money back guarantee</p>
       </Link>
     </div>
   );

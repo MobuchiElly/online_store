@@ -6,7 +6,7 @@
 
 :root {
   --red : 226;
-  --green : 96;
+  --green : 76;
   --blue : 127;
 }
 
@@ -39,13 +39,4 @@ button:focus,input:focus {
 button:disabled {
   /* background: #c7d3dd!important; */
   cursor: not-allowed
-}
-
-@media only screen and (min-width: 1200px) {
-  .action-spot{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }  
 }
